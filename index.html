@@ -3,62 +3,146 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Whatbot - AI-powered chat summarizer for WhatsApp Web. Get instant summaries of your conversations.">
-    <title>Whatbot - AI Chat Summarizer for WhatsApp Web</title>
-    <link rel="stylesheet" href="style.css">
+    <meta name="description" content="Whatbot - AI-powered chat summarizer for WhatsApp Web. Stop scrolling through hundreds of messages. Get instant summaries in seconds.">
+    <title>Whatbot - AI Chat Summarizer for WhatsApp</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💬</text></svg>">
 </head>
 <body>
     <!-- Navigation -->
-    <header class="header">
-        <nav class="nav container">
-            <a href="/" class="logo">
-                <span class="logo-icon">W</span>
-                <span class="logo-text">Whatbot</span>
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="/" class="nav-logo">
+                <div class="nav-logo-icon">
+                    <svg viewBox="0 0 32 32" fill="none">
+                        <rect width="32" height="32" rx="8" fill="#25D366"/>
+                        <path d="M16 6C10.5 6 6 10 6 15c0 2.5 1 4.8 2.8 6.5V26l4.2-2.3c1 .3 2 .4 3 .4 5.5 0 10-4 10-9s-4.5-9-10-9z" fill="white" fill-opacity="0.95"/>
+                        <rect x="11" y="12" width="10" height="7" rx="2" fill="white" stroke="#128C7E" stroke-width="1"/>
+                        <circle cx="13.5" cy="14.5" r="1" fill="#128C7E"/>
+                        <circle cx="18.5" cy="14.5" r="1" fill="#128C7E"/>
+                        <rect x="12.5" y="16.5" width="7" height="1.5" rx="0.75" fill="#25D366"/>
+                    </svg>
+                </div>
+                <span>Whatbot</span>
             </a>
-            <a href="#" class="btn btn-primary nav-cta">Add to Chrome</a>
-        </nav>
-    </header>
+            <a href="#" class="nav-cta">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"/>
+                    <circle cx="12" cy="12" r="4" fill="currentColor"/>
+                    <path d="M21.17 8H12"/>
+                    <path d="M3.95 6.06L12 12"/>
+                    <path d="M10.88 21.94L12 12"/>
+                </svg>
+                Add to Chrome — Free
+            </a>
+        </div>
+    </nav>
 
     <main>
         <!-- Hero Section -->
         <section class="hero">
-            <div class="container hero-content">
-                <div class="hero-text">
-                    <h1 class="hero-headline">Stop Scrolling. Start Knowing.</h1>
-                    <p class="hero-subheadline">
-                        Summarize your WhatsApp chats instantly with AI.
-                        Get key points, action items, and decisions from any conversation in seconds.
+            <div class="hero-container">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <span class="badge-dot"></span>
+                        AI-Powered Summaries
+                    </div>
+                    <h1 class="hero-title">
+                        Stop scrolling.<br>
+                        <span class="text-gradient">Start knowing.</span>
+                    </h1>
+                    <p class="hero-subtitle">
+                        200+ unread messages? Get the summary in 30 seconds.
+                        Whatbot uses AI to extract key points, decisions, and action items
+                        from your WhatsApp conversations.
                     </p>
-                    <a href="#" class="btn btn-primary btn-large">
-                        <svg class="chrome-icon" viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
-                            <circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/>
-                            <circle cx="12" cy="12" r="4"/>
-                        </svg>
-                        Add to Chrome - It's Free
-                    </a>
+                    <div class="hero-actions">
+                        <a href="#" class="btn btn-primary btn-lg">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <circle cx="12" cy="12" r="4" fill="currentColor"/>
+                            </svg>
+                            Add to Chrome — It's Free
+                        </a>
+                        <a href="#how-it-works" class="btn btn-ghost">
+                            See how it works
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M7 17L17 7M17 7H7M17 7V17"/>
+                            </svg>
+                        </a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <span class="stat-value">60x</span>
+                            <span class="stat-label">Faster than reading</span>
+                        </div>
+                        <div class="stat-divider"></div>
+                        <div class="stat">
+                            <span class="stat-value">100%</span>
+                            <span class="stat-label">Private & local</span>
+                        </div>
+                        <div class="stat-divider"></div>
+                        <div class="stat">
+                            <span class="stat-value">Free</span>
+                            <span class="stat-label">No hidden costs</span>
+                        </div>
+                    </div>
                 </div>
                 <div class="hero-visual">
-                    <div class="extension-preview">
-                        <div class="preview-header">
-                            <span class="preview-dot"></span>
-                            <span class="preview-dot"></span>
-                            <span class="preview-dot"></span>
-                        </div>
-                        <div class="preview-content">
-                            <div class="preview-chat">
-                                <div class="chat-message"></div>
-                                <div class="chat-message"></div>
-                                <div class="chat-message short"></div>
+                    <div class="browser-mockup">
+                        <div class="browser-header">
+                            <div class="browser-dots">
+                                <span></span><span></span><span></span>
                             </div>
-                            <div class="preview-summary">
-                                <div class="summary-icon">AI</div>
-                                <div class="summary-lines">
-                                    <div class="summary-line"></div>
-                                    <div class="summary-line"></div>
-                                    <div class="summary-line short"></div>
+                            <div class="browser-url">web.whatsapp.com</div>
+                        </div>
+                        <div class="browser-content">
+                            <div class="wa-sidebar">
+                                <div class="wa-chat active">
+                                    <div class="wa-avatar">FG</div>
+                                    <div class="wa-chat-info">
+                                        <span class="wa-name">Family Group</span>
+                                        <span class="wa-preview">Mom: Don't forget dinner...</span>
+                                    </div>
+                                    <span class="wa-badge">47</span>
+                                </div>
+                                <div class="wa-chat">
+                                    <div class="wa-avatar wt">WT</div>
+                                    <div class="wa-chat-info">
+                                        <span class="wa-name">Work Team</span>
+                                        <span class="wa-preview">Meeting at 3pm...</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="wa-main">
+                                <div class="wa-messages">
+                                    <div class="wa-msg incoming">Anyone free for dinner?</div>
+                                    <div class="wa-msg outgoing">Yes! What time?</div>
+                                    <div class="wa-msg incoming">7 PM at our place</div>
+                                    <div class="wa-msg-more">+44 more messages</div>
+                                </div>
+                            </div>
+                            <div class="whatbot-panel">
+                                <div class="whatbot-header">
+                                    <span class="whatbot-logo">W</span>
+                                    <span>Whatbot</span>
+                                </div>
+                                <div class="whatbot-summary">
+                                    <div class="summary-section">
+                                        <span class="summary-label">TL;DR</span>
+                                        <p>Family dinner tonight at 7 PM. Dad's making pasta, Sarah brings dessert.</p>
+                                    </div>
+                                    <div class="summary-section">
+                                        <span class="summary-label">Key Points</span>
+                                        <ul>
+                                            <li>Dinner confirmed for 7 PM</li>
+                                            <li>Location: Parents' house</li>
+                                            <li>Everyone attending</li>
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -67,150 +151,157 @@
             </div>
         </section>
 
-        <!-- Problem/Solution Section -->
-        <section class="problem-solution">
-            <div class="container">
-                <h2 class="section-headline">200+ unread messages?</h2>
-                <p class="section-subheadline">Get the summary in 30 seconds.</p>
-                <p class="section-description">
-                    Group chats can be overwhelming. Instead of scrolling through endless messages,
-                    let Whatbot extract what matters so you can respond faster and stay informed.
-                </p>
-            </div>
-        </section>
-
         <!-- Features Section -->
         <section class="features" id="features">
-            <div class="container">
-                <h2 class="section-title">Everything you need to stay on top of your chats</h2>
+            <div class="section-container">
+                <div class="section-header">
+                    <h2>Everything you need to stay informed</h2>
+                    <p>Powerful features designed to save you time and keep you in the loop.</p>
+                </div>
                 <div class="features-grid">
-                    <article class="feature-card">
+                    <div class="feature-card">
                         <div class="feature-icon">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
                             </svg>
                         </div>
-                        <h3 class="feature-title">One-Click Summaries</h3>
-                        <p class="feature-description">
-                            Select any chat and get an instant summary with a single click. No complicated setup required.
-                        </p>
-                    </article>
-
-                    <article class="feature-card">
+                        <h3>One-Click Summaries</h3>
+                        <p>Select any chat and get an instant AI summary. No complicated setup, no learning curve.</p>
+                    </div>
+                    <div class="feature-card">
                         <div class="feature-icon">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <circle cx="12" cy="12" r="10"/>
-                                <path d="M12 6v6l4 2"/>
+                                <path d="M12 16v-4M12 8h.01"/>
                             </svg>
                         </div>
-                        <h3 class="feature-title">Smart AI Analysis</h3>
-                        <p class="feature-description">
-                            Extract key points, action items, and important decisions automatically. Never miss what matters.
-                        </p>
-                    </article>
-
-                    <article class="feature-card">
+                        <h3>Smart Extraction</h3>
+                        <p>AI identifies key points, decisions, action items, and questions automatically.</p>
+                    </div>
+                    <div class="feature-card">
                         <div class="feature-icon">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                <circle cx="12" cy="12" r="10"/>
+                                <polyline points="12 6 12 12 16 14"/>
                             </svg>
                         </div>
-                        <h3 class="feature-title">Summary History</h3>
-                        <p class="feature-description">
-                            Access your past summaries anytime. Keep a record of important conversation highlights.
-                        </p>
-                    </article>
-
-                    <article class="feature-card">
+                        <h3>Time Ranges</h3>
+                        <p>Summarize today, yesterday, or the last 7 days. Perfect for catching up after time away.</p>
+                    </div>
+                    <div class="feature-card">
                         <div class="feature-icon">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                                <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+                            </svg>
+                        </div>
+                        <h3>History & Search</h3>
+                        <p>All summaries saved locally. Find that important decision from last week instantly.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="11" width="18" height="11" rx="2"/>
                                 <path d="M7 11V7a5 5 0 0110 0v4"/>
                             </svg>
                         </div>
-                        <h3 class="feature-title">100% Private</h3>
-                        <p class="feature-description">
-                            Your data stays on your device. We never store, transmit, or access your conversations.
-                        </p>
-                    </article>
+                        <h3>100% Private</h3>
+                        <p>Your data never leaves your browser. We can't see your messages — ever.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>
+                                <polyline points="7 10 12 15 17 10"/>
+                                <line x1="12" y1="15" x2="12" y2="3"/>
+                            </svg>
+                        </div>
+                        <h3>Copy & Share</h3>
+                        <p>One click to copy your summary. Share insights with teammates or save for later.</p>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- How It Works Section -->
+        <!-- How It Works -->
         <section class="how-it-works" id="how-it-works">
-            <div class="container">
-                <h2 class="section-title">Get started in 3 simple steps</h2>
-                <div class="steps-container">
+            <div class="section-container">
+                <div class="section-header">
+                    <h2>Up and running in 30 seconds</h2>
+                    <p>No account needed. No configuration. Just install and go.</p>
+                </div>
+                <div class="steps">
                     <div class="step">
                         <div class="step-number">1</div>
-                        <h3 class="step-title">Install Extension</h3>
-                        <p class="step-description">
-                            Add Whatbot to Chrome from the Web Store. Takes less than 10 seconds.
-                        </p>
+                        <div class="step-content">
+                            <h3>Install the extension</h3>
+                            <p>Add Whatbot to Chrome from the Web Store. One click, takes 5 seconds.</p>
+                        </div>
                     </div>
-                    <div class="step-connector"></div>
+                    <div class="step-line"></div>
                     <div class="step">
                         <div class="step-number">2</div>
-                        <h3 class="step-title">Open WhatsApp Web</h3>
-                        <p class="step-description">
-                            Go to web.whatsapp.com and open any chat you want to summarize.
-                        </p>
+                        <div class="step-content">
+                            <h3>Open WhatsApp Web</h3>
+                            <p>Go to web.whatsapp.com and select any chat you want to summarize.</p>
+                        </div>
                     </div>
-                    <div class="step-connector"></div>
+                    <div class="step-line"></div>
                     <div class="step">
                         <div class="step-number">3</div>
-                        <h3 class="step-title">Click Summarize</h3>
-                        <p class="step-description">
-                            Hit the Whatbot button and get your AI-powered summary instantly.
-                        </p>
+                        <div class="step-content">
+                            <h3>Click summarize</h3>
+                            <p>Hit the Whatbot button and get your AI-powered summary in seconds.</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Trust/Privacy Section -->
+        <!-- Privacy Section -->
         <section class="privacy" id="privacy">
-            <div class="container">
-                <div class="privacy-content">
-                    <div class="privacy-text">
-                        <h2 class="section-title">Your privacy is our priority</h2>
-                        <p class="privacy-description">
-                            We built Whatbot with privacy-first architecture. Your conversations
-                            never leave your browser, and we have zero access to your data.
-                        </p>
+            <div class="section-container">
+                <div class="privacy-grid">
+                    <div class="privacy-content">
+                        <h2>Your privacy is sacred</h2>
+                        <p class="privacy-intro">We built Whatbot with a simple principle: your conversations are none of our business.</p>
                         <ul class="privacy-list">
                             <li>
-                                <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
                                     <polyline points="20 6 9 17 4 12"/>
                                 </svg>
-                                <span>All processing happens locally on your device</span>
+                                <span>All data stays on your device</span>
                             </li>
                             <li>
-                                <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
                                     <polyline points="20 6 9 17 4 12"/>
                                 </svg>
-                                <span>No chat data is ever stored on external servers</span>
+                                <span>No external servers, no cloud storage</span>
                             </li>
                             <li>
-                                <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
                                     <polyline points="20 6 9 17 4 12"/>
                                 </svg>
-                                <span>No account or sign-up required</span>
+                                <span>No tracking, no analytics, no ads</span>
                             </li>
                             <li>
-                                <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
                                     <polyline points="20 6 9 17 4 12"/>
                                 </svg>
-                                <span>Open and transparent about our practices</span>
+                                <span>Your API key stays in your browser</span>
                             </li>
                         </ul>
+                        <a href="https://whatbot-privacy.vercel.app" class="privacy-link" target="_blank">
+                            Read our privacy policy
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M7 17L17 7M17 7H7M17 7V17"/>
+                            </svg>
+                        </a>
                     </div>
                     <div class="privacy-visual">
-                        <div class="shield-icon">
+                        <div class="shield">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                                 <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                                <path d="M9 12l2 2 4-4"/>
+                                <path d="M9 12l2 2 4-4" stroke-width="2"/>
                             </svg>
                         </div>
                     </div>
@@ -218,59 +309,67 @@
             </div>
         </section>
 
-        <!-- Final CTA Section -->
-        <section class="final-cta">
-            <div class="container">
-                <h2 class="cta-headline">Ready to save hours every week?</h2>
-                <p class="cta-description">
-                    Join thousands of users who've simplified their WhatsApp experience with Whatbot.
-                </p>
-                <a href="#" class="btn btn-primary btn-large">
-                    Add to Chrome - It's Free
-                </a>
-                <p class="cta-note">Free forever. No account needed.</p>
+        <!-- Final CTA -->
+        <section class="cta">
+            <div class="section-container">
+                <div class="cta-content">
+                    <h2>Ready to save hours every week?</h2>
+                    <p>Join thousands who've simplified their WhatsApp experience.</p>
+                    <a href="#" class="btn btn-white btn-lg">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <circle cx="12" cy="12" r="4" fill="currentColor"/>
+                        </svg>
+                        Add to Chrome — It's Free
+                    </a>
+                    <span class="cta-note">Free forever. No account required.</span>
+                </div>
             </div>
         </section>
     </main>
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="container footer-content">
-            <div class="footer-brand">
-                <a href="/" class="logo">
-                    <span class="logo-icon">W</span>
-                    <span class="logo-text">Whatbot</span>
-                </a>
-                <p class="footer-tagline">AI-powered chat summaries for WhatsApp Web</p>
+        <div class="footer-container">
+            <div class="footer-main">
+                <div class="footer-brand">
+                    <a href="/" class="footer-logo">
+                        <div class="nav-logo-icon">
+                            <svg viewBox="0 0 32 32" fill="none">
+                                <rect width="32" height="32" rx="8" fill="#25D366"/>
+                                <path d="M16 6C10.5 6 6 10 6 15c0 2.5 1 4.8 2.8 6.5V26l4.2-2.3c1 .3 2 .4 3 .4 5.5 0 10-4 10-9s-4.5-9-10-9z" fill="white" fill-opacity="0.95"/>
+                            </svg>
+                        </div>
+                        <span>Whatbot</span>
+                    </a>
+                    <p>AI-powered chat summaries for WhatsApp Web. Save time, stay informed.</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-col">
+                        <h4>Product</h4>
+                        <a href="#features">Features</a>
+                        <a href="#how-it-works">How it works</a>
+                        <a href="#">Chrome Web Store</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Legal</h4>
+                        <a href="https://whatbot-privacy.vercel.app" target="_blank">Privacy Policy</a>
+                        <a href="#">Terms of Service</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Support</h4>
+                        <a href="mailto:whatbot.extension@gmail.com">Contact</a>
+                        <a href="#">FAQ</a>
+                    </div>
+                </div>
             </div>
-            <nav class="footer-links">
-                <div class="footer-column">
-                    <h4 class="footer-heading">Product</h4>
-                    <ul>
-                        <li><a href="#features">Features</a></li>
-                        <li><a href="#how-it-works">How It Works</a></li>
-                        <li><a href="#">Chrome Web Store</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h4 class="footer-heading">Legal</h4>
-                    <ul>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Terms of Service</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h4 class="footer-heading">Support</h4>
-                    <ul>
-                        <li><a href="#">FAQ</a></li>
-                        <li><a href="#">Contact</a></li>
-                    </ul>
-                </div>
-            </nav>
-        </div>
-        <div class="container footer-bottom">
-            <p class="copyright">&copy; 2025 Whatbot. All rights reserved.</p>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Whatbot. All rights reserved.</p>
+                <p>Not affiliated with WhatsApp or Meta.</p>
+            </div>
         </div>
     </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
