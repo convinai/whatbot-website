@@ -869,6 +869,71 @@ img, svg {
 }
 
 /* =============================================
+   Use Cases Section
+   ============================================= */
+
+.use-cases {
+    padding: 5rem 0;
+    background: var(--gray-50);
+}
+
+.use-cases-grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 1.25rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+@media (min-width: 640px) {
+    .use-cases-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.use-case-card {
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    border-radius: 12px;
+    padding: 1.5rem;
+    transition: all 0.2s;
+}
+
+.use-case-card:hover {
+    border-color: var(--green-primary);
+    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.1);
+}
+
+.use-case-emoji {
+    font-size: 2rem;
+    display: block;
+    margin-bottom: 0.75rem;
+}
+
+.use-case-card h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--gray-900);
+    margin-bottom: 0.5rem;
+}
+
+.use-case-card p {
+    font-size: 0.875rem;
+    color: var(--gray-500);
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Features note */
+.features-note {
+    text-align: center;
+    font-size: 0.8125rem;
+    color: var(--gray-400);
+    margin-top: 2rem;
+    font-style: italic;
+}
+
+/* =============================================
    Pricing Section
    ============================================= */
 
