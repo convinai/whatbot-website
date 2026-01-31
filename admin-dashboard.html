@@ -788,14 +788,17 @@
                 const tbody = document.getElementById('feedback-tbody');
                 const totalEl = document.getElementById('feedback-total');
 
-                if (data.success && data.data?.length > 0) {
-                    totalEl.textContent = data.data.length;
-                    tbody.innerHTML = data.data.map(item => `
+                console.log('Feedback response:', data);
+
+                // API returns { success, data: { feedback: [...], total, limit, offset } }
+                if (data.success && data.data?.feedback?.length > 0) {
+                    totalEl.textContent = data.data.total || data.data.feedback.length;
+                    tbody.innerHTML = data.data.feedback.map(item => `
                         <tr>
                             <td>${formatFeedbackDate(item.createdAt)}</td>
-                            <td class="user-email-cell">${item.userId || 'Anonymous'}</td>
+                            <td class="user-email-cell">${item.userId || item.email || 'Anonymous'}</td>
                             <td>${renderStars(item.rating)}</td>
-                            <td>${item.message || ''}</td>
+                            <td>${item.feedback || item.message || ''}</td>
                         </tr>
                     `).join('');
                 } else {
