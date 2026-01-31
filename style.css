@@ -1242,6 +1242,181 @@ img, svg {
 }
 
 /* =============================================
+   Data Flow Diagram
+   ============================================= */
+
+.data-flow {
+    padding: 5rem 0;
+    background: var(--gray-900);
+    color: var(--white);
+}
+
+.data-flow .section-label {
+    color: var(--green-primary);
+}
+
+.data-flow .section-header h2 {
+    color: var(--white);
+}
+
+.data-flow .section-header p {
+    color: var(--gray-400);
+}
+
+.flow-diagram {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 0.5rem;
+    margin: 3rem 0 2rem;
+    flex-wrap: wrap;
+}
+
+.flow-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    min-width: 100px;
+    max-width: 140px;
+}
+
+.flow-icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0.75rem;
+}
+
+.flow-icon svg {
+    width: 32px;
+    height: 32px;
+}
+
+.flow-icon.whatsapp {
+    background: rgba(37, 211, 102, 0.15);
+    color: var(--green-primary);
+}
+
+.flow-icon.browser {
+    background: rgba(59, 130, 246, 0.15);
+    color: #3b82f6;
+}
+
+.flow-icon.ai {
+    background: rgba(168, 85, 247, 0.15);
+    color: #a855f7;
+}
+
+.flow-icon.summary {
+    background: rgba(37, 211, 102, 0.15);
+    color: var(--green-primary);
+}
+
+.flow-label {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 0.25rem;
+}
+
+.flow-desc {
+    font-size: 0.75rem;
+    color: var(--gray-400);
+    line-height: 1.4;
+}
+
+.flow-arrow {
+    display: flex;
+    align-items: center;
+    padding-top: 1rem;
+    color: var(--gray-600);
+}
+
+.flow-arrow svg {
+    width: 24px;
+    height: 24px;
+}
+
+.flow-notice {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    background: rgba(37, 211, 102, 0.1);
+    border: 1px solid rgba(37, 211, 102, 0.2);
+    border-radius: 12px;
+    padding: 1rem 1.5rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.flow-notice svg {
+    width: 24px;
+    height: 24px;
+    color: var(--green-primary);
+    flex-shrink: 0;
+}
+
+.flow-notice span {
+    font-size: 0.875rem;
+    color: var(--gray-300);
+    text-align: left;
+}
+
+.flow-notice strong {
+    color: var(--white);
+}
+
+@media (max-width: 640px) {
+    .flow-diagram {
+        gap: 1rem;
+    }
+
+    .flow-step {
+        min-width: 70px;
+        max-width: 80px;
+    }
+
+    .flow-icon {
+        width: 48px;
+        height: 48px;
+        border-radius: 12px;
+    }
+
+    .flow-icon svg {
+        width: 24px;
+        height: 24px;
+    }
+
+    .flow-arrow svg {
+        width: 16px;
+        height: 16px;
+    }
+
+    .flow-label {
+        font-size: 0.75rem;
+    }
+
+    .flow-desc {
+        font-size: 0.625rem;
+    }
+
+    .flow-notice {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.5rem;
+    }
+
+    .flow-notice span {
+        text-align: center;
+    }
+}
+
+/* =============================================
    Trust Box Section
    ============================================= */
 
