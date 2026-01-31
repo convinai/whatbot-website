@@ -13,21 +13,18 @@
         :root {
             --green-primary: #25D366;
             --green-dark: #128C7E;
-            --green-darker: #075E54;
-            --white: #ffffff;
-            --gray-50: #fafafa;
-            --gray-100: #f5f5f5;
-            --gray-200: #e5e5e5;
-            --gray-300: #d4d4d4;
-            --gray-400: #a3a3a3;
-            --gray-500: #737373;
-            --gray-600: #525252;
-            --gray-700: #404040;
-            --gray-800: #262626;
-            --gray-900: #171717;
-            --red-500: #ef4444;
-            --blue-500: #3b82f6;
-            --yellow-500: #eab308;
+            --sidebar-bg: #1a1a1a;
+            --sidebar-hover: #2a2a2a;
+            --sidebar-active: #25D366;
+            --main-bg: #111111;
+            --card-bg: #1e1e1e;
+            --card-border: #2a2a2a;
+            --text-primary: #ffffff;
+            --text-secondary: #888888;
+            --text-muted: #666666;
+            --success: #25D366;
+            --warning: #f59e0b;
+            --error: #ef4444;
             --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
         }
 
@@ -39,238 +36,292 @@
 
         body {
             font-family: var(--font-sans);
-            background: var(--gray-100);
+            background: var(--main-bg);
+            color: var(--text-primary);
             min-height: 100vh;
-            color: var(--gray-700);
+            display: flex;
         }
 
-        /* Header */
-        .admin-header {
-            background: var(--white);
-            border-bottom: 1px solid var(--gray-200);
-            padding: 0.875rem 1.5rem;
-            position: sticky;
+        /* Sidebar */
+        .sidebar {
+            width: 240px;
+            background: var(--sidebar-bg);
+            display: flex;
+            flex-direction: column;
+            position: fixed;
             top: 0;
+            left: 0;
+            bottom: 0;
             z-index: 100;
         }
 
-        .header-content {
-            max-width: 1400px;
-            margin: 0 auto;
+        .sidebar-header {
+            padding: 1.25rem 1rem;
             display: flex;
             align-items: center;
-            justify-content: space-between;
+            gap: 0.75rem;
         }
 
-        .header-left {
+        .sidebar-logo {
+            width: 36px;
+            height: 36px;
+            background: var(--green-primary);
+            border-radius: 10px;
             display: flex;
             align-items: center;
-            gap: 1rem;
+            justify-content: center;
         }
 
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-weight: 700;
-            color: var(--gray-900);
-            text-decoration: none;
+        .sidebar-logo svg {
+            width: 20px;
+            height: 20px;
         }
 
-        .logo svg {
-            width: 28px;
-            height: 28px;
+        .sidebar-title {
+            font-size: 1.125rem;
+            font-weight: 600;
         }
 
-        .admin-badge {
-            background: var(--gray-100);
-            color: var(--gray-600);
+        .sidebar-title span {
+            color: var(--text-secondary);
+            font-weight: 400;
+        }
+
+        .sidebar-nav {
+            flex: 1;
+            padding: 1rem 0;
+        }
+
+        .nav-section-title {
+            padding: 0.5rem 1rem;
             font-size: 0.6875rem;
             font-weight: 600;
-            padding: 0.25rem 0.5rem;
-            border-radius: 4px;
             text-transform: uppercase;
             letter-spacing: 0.05em;
+            color: var(--text-muted);
         }
 
-        .header-right {
+        .nav-item {
             display: flex;
             align-items: center;
-            gap: 1rem;
+            gap: 0.75rem;
+            padding: 0.75rem 1rem;
+            margin: 0.125rem 0.5rem;
+            border-radius: 8px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9375rem;
+            font-weight: 500;
+            transition: all 0.15s;
+            cursor: pointer;
+        }
+
+        .nav-item:hover {
+            background: var(--sidebar-hover);
+            color: var(--text-primary);
+        }
+
+        .nav-item.active {
+            background: var(--sidebar-active);
+            color: var(--sidebar-bg);
+        }
+
+        .nav-item svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        .sidebar-footer {
+            padding: 1rem;
+            border-top: 1px solid var(--card-border);
         }
 
         .user-info {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .user-avatar {
+            width: 32px;
+            height: 32px;
+            background: var(--green-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             font-size: 0.875rem;
-            color: var(--gray-600);
+            font-weight: 600;
+            color: var(--sidebar-bg);
+        }
+
+        .user-email {
+            font-size: 0.8125rem;
+            color: var(--text-secondary);
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
         }
 
         .btn-logout {
-            padding: 0.5rem 1rem;
+            width: 100%;
+            padding: 0.625rem;
+            background: transparent;
+            border: 1px solid var(--card-border);
+            border-radius: 6px;
+            color: var(--text-secondary);
             font-size: 0.8125rem;
             font-weight: 500;
-            color: var(--gray-600);
-            background: var(--white);
-            border: 1px solid var(--gray-200);
-            border-radius: 6px;
             cursor: pointer;
-            transition: all 0.2s;
+            transition: all 0.15s;
         }
 
         .btn-logout:hover {
-            background: var(--gray-50);
-            color: var(--red-500);
-            border-color: var(--red-500);
+            background: var(--sidebar-hover);
+            color: var(--text-primary);
+            border-color: var(--text-muted);
         }
 
         /* Main Content */
-        .admin-main {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 2rem 1.5rem;
+        .main-content {
+            flex: 1;
+            margin-left: 240px;
+            padding: 1.5rem 2rem;
+            min-height: 100vh;
+        }
+
+        .page-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1.5rem;
         }
 
         .page-title {
             font-size: 1.5rem;
             font-weight: 700;
-            color: var(--gray-900);
-            margin-bottom: 2rem;
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .btn-refresh {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 6px;
+            color: var(--text-primary);
+            font-size: 0.8125rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.15s;
+        }
+
+        .btn-refresh:hover {
+            background: var(--sidebar-hover);
+        }
+
+        .btn-refresh svg {
+            width: 14px;
+            height: 14px;
+        }
+
+        .last-updated {
+            font-size: 0.8125rem;
+            color: var(--text-muted);
         }
 
         /* Stats Grid */
         .stats-grid {
             display: grid;
-            grid-template-columns: repeat(1, 1fr);
+            grid-template-columns: repeat(5, 1fr);
             gap: 1rem;
-            margin-bottom: 2rem;
+            margin-bottom: 1rem;
         }
 
-        @media (min-width: 640px) {
+        @media (max-width: 1400px) {
+            .stats-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 900px) {
             .stats-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
         }
 
-        @media (min-width: 1024px) {
-            .stats-grid {
-                grid-template-columns: repeat(4, 1fr);
-            }
-        }
-
         .stat-card {
-            background: var(--white);
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
             border-radius: 12px;
-            padding: 1.5rem;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-        }
-
-        .stat-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 0.75rem;
+            padding: 1.25rem;
         }
 
         .stat-label {
             font-size: 0.8125rem;
-            font-weight: 500;
-            color: var(--gray-500);
-        }
-
-        .stat-icon {
-            width: 36px;
-            height: 36px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 8px;
-        }
-
-        .stat-icon.green {
-            background: rgba(37, 211, 102, 0.1);
-            color: var(--green-primary);
-        }
-
-        .stat-icon.blue {
-            background: rgba(59, 130, 246, 0.1);
-            color: var(--blue-500);
-        }
-
-        .stat-icon.yellow {
-            background: rgba(234, 179, 8, 0.1);
-            color: var(--yellow-500);
-        }
-
-        .stat-icon svg {
-            width: 20px;
-            height: 20px;
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
         }
 
         .stat-value {
             font-size: 2rem;
             font-weight: 700;
-            color: var(--gray-900);
-            line-height: 1;
+            line-height: 1.2;
             margin-bottom: 0.25rem;
         }
 
-        .stat-change {
+        .stat-value.green {
+            color: var(--success);
+        }
+
+        .stat-value.yellow {
+            color: var(--warning);
+        }
+
+        .stat-value.red {
+            color: var(--error);
+        }
+
+        .stat-subtext {
             font-size: 0.75rem;
-            color: var(--green-primary);
+            color: var(--text-muted);
         }
 
-        .stat-change.negative {
-            color: var(--red-500);
-        }
-
-        /* Content Sections */
-        .content-grid {
+        .stats-row-2 {
             display: grid;
-            grid-template-columns: 1fr;
-            gap: 1.5rem;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 1rem;
+            margin-bottom: 2rem;
         }
 
-        @media (min-width: 1024px) {
-            .content-grid {
-                grid-template-columns: 2fr 1fr;
+        @media (max-width: 1400px) {
+            .stats-row-2 {
+                grid-template-columns: repeat(3, 1fr);
             }
         }
 
-        .content-card {
-            background: var(--white);
-            border-radius: 12px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-        }
-
-        .card-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 1.25rem 1.5rem;
-            border-bottom: 1px solid var(--gray-100);
-        }
-
-        .card-title {
-            font-size: 1rem;
+        /* Users Table */
+        .section-title {
+            font-size: 1.125rem;
             font-weight: 600;
-            color: var(--gray-900);
+            margin-bottom: 1rem;
         }
 
-        .card-action {
-            font-size: 0.8125rem;
-            color: var(--green-primary);
-            text-decoration: none;
-            font-weight: 500;
+        .table-container {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            overflow: hidden;
         }
 
-        .card-action:hover {
-            text-decoration: underline;
-        }
-
-        .card-body {
-            padding: 1.5rem;
-        }
-
-        /* Recent Users Table */
         .users-table {
             width: 100%;
             border-collapse: collapse;
@@ -278,87 +329,63 @@
 
         .users-table th,
         .users-table td {
+            padding: 1rem 1.25rem;
             text-align: left;
-            padding: 0.75rem 0;
-            font-size: 0.875rem;
         }
 
         .users-table th {
-            font-weight: 500;
-            color: var(--gray-500);
-            border-bottom: 1px solid var(--gray-100);
+            font-size: 0.6875rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-muted);
+            background: var(--sidebar-bg);
+            border-bottom: 1px solid var(--card-border);
         }
 
         .users-table td {
-            color: var(--gray-700);
-            border-bottom: 1px solid var(--gray-50);
+            font-size: 0.9375rem;
+            border-bottom: 1px solid var(--card-border);
         }
 
         .users-table tr:last-child td {
             border-bottom: none;
         }
 
-        .user-email {
+        .users-table tr:hover td {
+            background: rgba(255,255,255,0.02);
+        }
+
+        .user-email-cell {
             font-weight: 500;
-            color: var(--gray-900);
+        }
+
+        .cost-cell {
+            color: var(--success);
+            font-weight: 600;
         }
 
         .status-badge {
             display: inline-block;
             padding: 0.25rem 0.625rem;
-            font-size: 0.6875rem;
+            font-size: 0.75rem;
             font-weight: 600;
-            border-radius: 100px;
-            text-transform: uppercase;
+            border-radius: 4px;
         }
 
-        .status-badge.active {
-            background: rgba(37, 211, 102, 0.1);
-            color: var(--green-dark);
+        .status-badge.normal {
+            background: rgba(37, 211, 102, 0.15);
+            color: var(--success);
         }
 
-        .status-badge.trial {
-            background: rgba(59, 130, 246, 0.1);
-            color: var(--blue-500);
+        .status-badge.warning {
+            background: rgba(245, 158, 11, 0.15);
+            color: var(--warning);
         }
 
-        .status-badge.expired {
-            background: rgba(239, 68, 68, 0.1);
-            color: var(--red-500);
-        }
-
-        /* Quick Actions */
-        .quick-actions {
-            display: flex;
-            flex-direction: column;
-            gap: 0.75rem;
-        }
-
-        .action-btn {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            padding: 1rem;
-            background: var(--gray-50);
-            border: 1px solid var(--gray-100);
-            border-radius: 8px;
-            text-decoration: none;
-            color: var(--gray-700);
-            font-size: 0.9375rem;
-            font-weight: 500;
-            transition: all 0.2s;
-            cursor: pointer;
-        }
-
-        .action-btn:hover {
-            background: var(--white);
-            border-color: var(--green-primary);
-            color: var(--green-primary);
-        }
-
-        .action-btn svg {
-            width: 20px;
-            height: 20px;
+        .status-badge.danger {
+            background: rgba(239, 68, 68, 0.15);
+            color: var(--error);
         }
 
         /* Loading State */
@@ -368,7 +395,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: var(--white);
+            background: var(--main-bg);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -378,7 +405,7 @@
         .loading-spinner {
             width: 40px;
             height: 40px;
-            border: 3px solid var(--gray-200);
+            border: 3px solid var(--card-border);
             border-top-color: var(--green-primary);
             border-radius: 50%;
             animation: spin 0.8s linear infinite;
@@ -395,15 +422,43 @@
         /* Empty State */
         .empty-state {
             text-align: center;
-            padding: 2rem;
-            color: var(--gray-500);
+            padding: 3rem 2rem;
+            color: var(--text-muted);
         }
 
-        .empty-state svg {
-            width: 48px;
-            height: 48px;
-            margin-bottom: 1rem;
-            opacity: 0.5;
+        /* Feedback specific */
+        .feedback-count {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+        }
+
+        .star-rating {
+            color: #f59e0b;
+            font-size: 1rem;
+            letter-spacing: 2px;
+        }
+
+        .star-rating .empty {
+            color: var(--text-muted);
+        }
+
+        /* Mobile Sidebar */
+        @media (max-width: 768px) {
+            .sidebar {
+                transform: translateX(-100%);
+                transition: transform 0.3s;
+            }
+            .sidebar.open {
+                transform: translateX(0);
+            }
+            .main-content {
+                margin-left: 0;
+                padding: 1rem;
+            }
+            .stats-grid,
+            .stats-row-2 {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -413,155 +468,147 @@
         <div class="loading-spinner"></div>
     </div>
 
-    <!-- Header -->
-    <header class="admin-header">
-        <div class="header-content">
-            <div class="header-left">
-                <a href="/" class="logo">
-                    <svg viewBox="0 0 32 32" fill="none">
-                        <rect width="32" height="32" rx="8" fill="#25D366"/>
-                        <path d="M16 6C10.5 6 6 10 6 15c0 2.5 1 4.8 2.8 6.5V26l4.2-2.3c1 .3 2 .4 3 .4 5.5 0 10-4 10-9s-4.5-9-10-9z" fill="white" fill-opacity="0.95"/>
-                    </svg>
-                    Whatbot
-                </a>
-                <span class="admin-badge">Admin</span>
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <div class="sidebar-logo">
+                <svg viewBox="0 0 24 24" fill="white">
+                    <path d="M12 2C6.5 2 2 6 2 11c0 2.5 1 4.8 2.8 6.5V22l4.2-2.3c1 .3 2 .4 3 .4 5.5 0 10-4 10-9s-4.5-9-10-9z"/>
+                </svg>
             </div>
-            <div class="header-right">
-                <span class="user-info" id="user-email"></span>
-                <button class="btn-logout" id="logout-btn">Logout</button>
-            </div>
+            <div class="sidebar-title">Whatbot <span>Admin</span></div>
         </div>
-    </header>
+
+        <nav class="sidebar-nav">
+            <div class="nav-section-title">Overview</div>
+            <a href="#analytics" class="nav-item active" data-page="analytics">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="20" x2="18" y2="10"/>
+                    <line x1="12" y1="20" x2="12" y2="4"/>
+                    <line x1="6" y1="20" x2="6" y2="14"/>
+                </svg>
+                Analytics
+            </a>
+            <a href="#feedback" class="nav-item" data-page="feedback">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                </svg>
+                Feedback
+            </a>
+        </nav>
+
+        <div class="sidebar-footer">
+            <div class="user-info">
+                <div class="user-avatar" id="user-avatar">A</div>
+                <span class="user-email" id="user-email">admin@whatbot.com</span>
+            </div>
+            <button class="btn-logout" id="logout-btn">Logout</button>
+        </div>
+    </aside>
 
     <!-- Main Content -->
-    <main class="admin-main">
-        <h1 class="page-title">Dashboard</h1>
-
-        <!-- Stats Grid -->
-        <div class="stats-grid">
-            <div class="stat-card">
-                <div class="stat-header">
-                    <span class="stat-label">Total Users</span>
-                    <div class="stat-icon green">
+    <main class="main-content">
+        <!-- Analytics Page -->
+        <div id="page-analytics">
+            <div class="page-header">
+                <h1 class="page-title">Analytics</h1>
+                <div class="header-actions">
+                    <button class="btn-refresh" id="refresh-btn">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-                            <circle cx="9" cy="7" r="4"/>
-                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
-                            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                            <path d="M23 4v6h-6M1 20v-6h6"/>
+                            <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/>
                         </svg>
-                    </div>
+                        Refresh
+                    </button>
+                    <span class="last-updated">Updated <span id="last-updated">--:--:--</span></span>
                 </div>
-                <div class="stat-value" id="stat-total-users">-</div>
-                <div class="stat-change" id="stat-users-change">Loading...</div>
             </div>
 
-            <div class="stat-card">
-                <div class="stat-header">
-                    <span class="stat-label">Active Subscriptions</span>
-                    <div class="stat-icon green">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
-                            <polyline points="22 4 12 14.01 9 11.01"/>
-                        </svg>
-                    </div>
+            <!-- Stats Row 1 -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-label">Total Requests</div>
+                    <div class="stat-value" id="stat-total-requests">0</div>
+                    <div class="stat-subtext">All time</div>
                 </div>
-                <div class="stat-value" id="stat-active-subs">-</div>
-                <div class="stat-change" id="stat-subs-change">Loading...</div>
+                <div class="stat-card">
+                    <div class="stat-label">Today's Requests</div>
+                    <div class="stat-value" id="stat-today-requests">0</div>
+                    <div class="stat-subtext" id="stat-today-date">--</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Active Users</div>
+                    <div class="stat-value" id="stat-active-users">0</div>
+                    <div class="stat-subtext">This month</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Total Cost</div>
+                    <div class="stat-value green" id="stat-total-cost">$0.00</div>
+                    <div class="stat-subtext">This month</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Avg Latency</div>
+                    <div class="stat-value" id="stat-avg-latency">0ms</div>
+                    <div class="stat-subtext">Response time</div>
+                </div>
             </div>
 
-            <div class="stat-card">
-                <div class="stat-header">
-                    <span class="stat-label">Trial Users</span>
-                    <div class="stat-icon blue">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <circle cx="12" cy="12" r="10"/>
-                            <polyline points="12 6 12 12 16 14"/>
-                        </svg>
-                    </div>
+            <!-- Stats Row 2 -->
+            <div class="stats-row-2">
+                <div class="stat-card">
+                    <div class="stat-label">Error Rate</div>
+                    <div class="stat-value" id="stat-error-rate">0.0%</div>
+                    <div class="stat-subtext">Failed requests</div>
                 </div>
-                <div class="stat-value" id="stat-trial-users">-</div>
-                <div class="stat-change" id="stat-trial-change">Loading...</div>
             </div>
 
-            <div class="stat-card">
-                <div class="stat-header">
-                    <span class="stat-label">Monthly Revenue</span>
-                    <div class="stat-icon yellow">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <line x1="12" y1="1" x2="12" y2="23"/>
-                            <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
-                        </svg>
-                    </div>
-                </div>
-                <div class="stat-value" id="stat-revenue">-</div>
-                <div class="stat-change" id="stat-revenue-change">Loading...</div>
+            <!-- Users Table -->
+            <h2 class="section-title">User Usage This Month</h2>
+            <div class="table-container">
+                <table class="users-table">
+                    <thead>
+                        <tr>
+                            <th>User</th>
+                            <th>Summaries</th>
+                            <th>Input Tokens</th>
+                            <th>Output Tokens</th>
+                            <th>Cost</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="users-tbody">
+                        <tr>
+                            <td colspan="6" class="empty-state">Loading...</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
 
-        <!-- Content Grid -->
-        <div class="content-grid">
-            <!-- Recent Users -->
-            <div class="content-card">
-                <div class="card-header">
-                    <h2 class="card-title">Recent Users</h2>
-                    <a href="#" class="card-action">View All</a>
-                </div>
-                <div class="card-body">
-                    <table class="users-table" id="users-table">
-                        <thead>
-                            <tr>
-                                <th>User</th>
-                                <th>Status</th>
-                                <th>Joined</th>
-                            </tr>
-                        </thead>
-                        <tbody id="users-tbody">
-                            <tr>
-                                <td colspan="3" class="empty-state">Loading...</td>
-                            </tr>
-                        </tbody>
-                    </table>
+        <!-- Feedback Page (hidden by default) -->
+        <div id="page-feedback" class="hidden">
+            <div class="page-header">
+                <h1 class="page-title">User Feedback</h1>
+                <div class="header-actions">
+                    <span class="feedback-count"><span id="feedback-total">0</span> total</span>
                 </div>
             </div>
-
-            <!-- Quick Actions -->
-            <div class="content-card">
-                <div class="card-header">
-                    <h2 class="card-title">Quick Actions</h2>
-                </div>
-                <div class="card-body">
-                    <div class="quick-actions">
-                        <a href="#" class="action-btn" id="action-users">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-                                <circle cx="9" cy="7" r="4"/>
-                            </svg>
-                            Manage Users
-                        </a>
-                        <a href="#" class="action-btn" id="action-pricing">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <line x1="12" y1="1" x2="12" y2="23"/>
-                                <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
-                            </svg>
-                            Update Pricing
-                        </a>
-                        <a href="#" class="action-btn" id="action-analytics">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <line x1="18" y1="20" x2="18" y2="10"/>
-                                <line x1="12" y1="20" x2="12" y2="4"/>
-                                <line x1="6" y1="20" x2="6" y2="14"/>
-                            </svg>
-                            View Analytics
-                        </a>
-                        <a href="#" class="action-btn" id="action-settings">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <circle cx="12" cy="12" r="3"/>
-                                <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
-                            </svg>
-                            Settings
-                        </a>
-                    </div>
-                </div>
+            <div class="table-container">
+                <table class="users-table">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>User</th>
+                            <th>Rating</th>
+                            <th>Feedback</th>
+                        </tr>
+                    </thead>
+                    <tbody id="feedback-tbody">
+                        <tr>
+                            <td colspan="4" class="empty-state">Loading...</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </main>
@@ -604,130 +651,192 @@
             }
         }
 
-        // Fetch dashboard data
-        async function fetchDashboardData(token) {
+        // Format numbers
+        function formatNumber(num) {
+            if (num >= 1000000) return (num / 1000000).toFixed(1) + 'M';
+            if (num >= 1000) return (num / 1000).toFixed(1) + 'K';
+            return num.toString();
+        }
+
+        // Format cost
+        function formatCost(cents) {
+            return '$' + (cents / 100).toFixed(2);
+        }
+
+        // Get status based on cost/usage
+        function getStatus(user) {
+            const cost = user.monthlyCostCents || 0;
+            if (cost > 1000) return { label: 'High', class: 'danger' };
+            if (cost > 100) return { label: 'Warning', class: 'warning' };
+            return { label: 'Normal', class: 'normal' };
+        }
+
+        // Update last updated time
+        function updateLastUpdated() {
+            const now = new Date();
+            const time = now.toLocaleTimeString('en-US', { hour12: false });
+            document.getElementById('last-updated').textContent = time;
+        }
+
+        // Fetch and display analytics data
+        async function fetchAnalytics(token) {
             try {
-                // Fetch stats and users in parallel
                 const [statsResponse, usersResponse] = await Promise.all([
                     fetch(`${BACKEND_URL}/api/stats`, {
-                        headers: {
-                            'Authorization': `Bearer ${token}`
-                        }
+                        headers: { 'Authorization': `Bearer ${token}` }
                     }),
                     fetch(`${BACKEND_URL}/api/stats/users`, {
-                        headers: {
-                            'Authorization': `Bearer ${token}`
-                        }
+                        headers: { 'Authorization': `Bearer ${token}` }
                     })
                 ]);
 
                 const statsData = await statsResponse.json();
                 const usersData = await usersResponse.json();
 
-                // Combine the data
-                const dashboardData = {
-                    stats: {
-                        totalUsers: usersData.data?.users?.length || 0,
-                        activeSubscriptions: 0, // Will be calculated from users
-                        trialUsers: 0, // Will be calculated
-                        monthlyRevenue: 0, // Placeholder
-                    },
-                    recentUsers: []
-                };
+                // Update stats cards
+                if (statsData.success && statsData.data) {
+                    const stats = statsData.data;
+                    document.getElementById('stat-total-requests').textContent = stats.totalRequests || 0;
+                    document.getElementById('stat-today-requests').textContent = stats.todayRequests || 0;
+                    document.getElementById('stat-today-date').textContent = stats.date || new Date().toISOString().split('T')[0];
+                    document.getElementById('stat-avg-latency').textContent = stats.avgLatencyMs ? Math.round(stats.avgLatencyMs) + 'ms' : '0ms';
 
-                // Process users data
+                    // Calculate error rate
+                    const errorRate = stats.totalRequests > 0
+                        ? ((stats.errors || 0) / stats.totalRequests * 100).toFixed(1)
+                        : '0.0';
+                    document.getElementById('stat-error-rate').textContent = errorRate + '%';
+
+                    // Color error rate based on value
+                    const errorRateEl = document.getElementById('stat-error-rate');
+                    if (parseFloat(errorRate) > 10) {
+                        errorRateEl.classList.add('red');
+                    } else if (parseFloat(errorRate) > 5) {
+                        errorRateEl.classList.add('yellow');
+                    }
+                }
+
+                // Update users table and calculate totals
                 if (usersData.success && usersData.data?.users) {
                     const users = usersData.data.users;
-                    dashboardData.stats.totalUsers = users.length;
 
-                    // Get recent users (sort by activity and take last 5)
-                    dashboardData.recentUsers = users
-                        .slice(0, 5)
-                        .map(u => ({
-                            email: u.userId || 'Unknown',
-                            status: u.monthlyRequests > 0 ? 'active' : 'trial',
-                            createdAt: new Date().toISOString()
-                        }));
+                    // Count active users and total cost
+                    const activeUsers = users.filter(u => u.monthlyRequests > 0).length;
+                    const totalCost = users.reduce((sum, u) => sum + (u.monthlyCostCents || 0), 0);
 
-                    // Count active users (users with requests this month)
-                    dashboardData.stats.activeSubscriptions = users.filter(u => u.monthlyRequests > 0).length;
-                    dashboardData.stats.trialUsers = users.filter(u => u.monthlyRequests === 0).length;
+                    document.getElementById('stat-active-users').textContent = activeUsers;
+                    document.getElementById('stat-total-cost').textContent = formatCost(totalCost);
+
+                    // Populate users table
+                    const tbody = document.getElementById('users-tbody');
+                    if (users.length > 0) {
+                        tbody.innerHTML = users.map(user => {
+                            const status = getStatus(user);
+                            return `
+                                <tr>
+                                    <td class="user-email-cell">${user.userId || 'Unknown'}</td>
+                                    <td>${user.monthlyRequests || 0}</td>
+                                    <td>${formatNumber(user.monthlyInputTokens || 0)}</td>
+                                    <td>${formatNumber(user.monthlyOutputTokens || 0)}</td>
+                                    <td class="cost-cell">${formatCost(user.monthlyCostCents || 0)}</td>
+                                    <td><span class="status-badge ${status.class}">${status.label}</span></td>
+                                </tr>
+                            `;
+                        }).join('');
+                    } else {
+                        tbody.innerHTML = '<tr><td colspan="6" class="empty-state">No users yet</td></tr>';
+                    }
                 }
 
-                // Process stats data
-                if (statsData.success && statsData.data) {
-                    dashboardData.stats.totalRequests = statsData.data.totalRequests || 0;
-                    dashboardData.stats.todayRequests = statsData.data.todayRequests || 0;
-                }
-
-                updateDashboard(dashboardData);
+                updateLastUpdated();
             } catch (error) {
-                console.error('Failed to fetch dashboard data:', error);
-                // Show error state
-                updateDashboard({
-                    stats: {
-                        totalUsers: '-',
-                        activeSubscriptions: '-',
-                        trialUsers: '-',
-                        monthlyRevenue: '-',
-                    },
-                    recentUsers: []
-                });
+                console.error('Failed to fetch analytics:', error);
             }
         }
 
-        // Update dashboard with data
-        function updateDashboard(data) {
-            // Update stats
-            if (data.stats) {
-                document.getElementById('stat-total-users').textContent = data.stats.totalUsers || 0;
-                document.getElementById('stat-active-subs').textContent = data.stats.activeSubscriptions || 0;
-                document.getElementById('stat-trial-users').textContent = data.stats.trialUsers || 0;
-                document.getElementById('stat-revenue').textContent = data.stats.monthlyRevenue ? `$${data.stats.monthlyRevenue}` : '$0';
-
-                // Update change indicators
-                document.getElementById('stat-users-change').textContent = data.stats.usersChange || 'All time';
-                document.getElementById('stat-subs-change').textContent = data.stats.subsChange || 'Active';
-                document.getElementById('stat-trial-change').textContent = data.stats.trialChange || 'In trial period';
-                document.getElementById('stat-revenue-change').textContent = data.stats.revenueChange || 'This month';
+        // Generate star rating HTML
+        function renderStars(rating) {
+            const filled = rating || 0;
+            let stars = '';
+            for (let i = 1; i <= 5; i++) {
+                stars += i <= filled ? '★' : '<span class="empty">★</span>';
             }
-
-            // Update recent users table
-            if (data.recentUsers && data.recentUsers.length > 0) {
-                const tbody = document.getElementById('users-tbody');
-                tbody.innerHTML = data.recentUsers.map(user => `
-                    <tr>
-                        <td class="user-email">${user.email || 'N/A'}</td>
-                        <td>
-                            <span class="status-badge ${getStatusClass(user.status)}">${user.status || 'Unknown'}</span>
-                        </td>
-                        <td>${formatDate(user.createdAt)}</td>
-                    </tr>
-                `).join('');
-            } else {
-                document.getElementById('users-tbody').innerHTML = `
-                    <tr>
-                        <td colspan="3" class="empty-state">No users yet</td>
-                    </tr>
-                `;
-            }
+            return `<span class="star-rating">${stars}</span>`;
         }
 
-        function getStatusClass(status) {
-            if (!status) return 'trial';
-            const s = status.toLowerCase();
-            if (s === 'active' || s === 'subscribed') return 'active';
-            if (s === 'trial' || s === 'trialing') return 'trial';
-            return 'expired';
-        }
-
-        function formatDate(dateStr) {
-            if (!dateStr) return 'N/A';
+        // Format date for feedback
+        function formatFeedbackDate(dateStr) {
             const date = new Date(dateStr);
             return date.toLocaleDateString('en-US', {
                 month: 'short',
                 day: 'numeric',
                 year: 'numeric'
+            }) + ', ' + date.toLocaleTimeString('en-US', {
+                hour: '2-digit',
+                minute: '2-digit'
+            });
+        }
+
+        // Fetch feedback
+        async function fetchFeedback(token) {
+            try {
+                const response = await fetch(`${BACKEND_URL}/api/feedback/list`, {
+                    headers: { 'Authorization': `Bearer ${token}` }
+                });
+
+                const data = await response.json();
+                const tbody = document.getElementById('feedback-tbody');
+                const totalEl = document.getElementById('feedback-total');
+
+                if (data.success && data.data?.length > 0) {
+                    totalEl.textContent = data.data.length;
+                    tbody.innerHTML = data.data.map(item => `
+                        <tr>
+                            <td>${formatFeedbackDate(item.createdAt)}</td>
+                            <td class="user-email-cell">${item.userId || 'Anonymous'}</td>
+                            <td>${renderStars(item.rating)}</td>
+                            <td>${item.message || ''}</td>
+                        </tr>
+                    `).join('');
+                } else {
+                    totalEl.textContent = '0';
+                    tbody.innerHTML = '<tr><td colspan="4" class="empty-state">No feedback yet</td></tr>';
+                }
+            } catch (error) {
+                console.error('Failed to fetch feedback:', error);
+                document.getElementById('feedback-tbody').innerHTML =
+                    '<tr><td colspan="4" class="empty-state">Failed to load feedback</td></tr>';
+            }
+        }
+
+        // Page navigation
+        function setupNavigation() {
+            const navItems = document.querySelectorAll('.nav-item');
+            const pages = {
+                analytics: document.getElementById('page-analytics'),
+                feedback: document.getElementById('page-feedback')
+            };
+
+            navItems.forEach(item => {
+                item.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const page = item.dataset.page;
+
+                    // Update active nav
+                    navItems.forEach(n => n.classList.remove('active'));
+                    item.classList.add('active');
+
+                    // Show/hide pages
+                    Object.keys(pages).forEach(key => {
+                        pages[key].classList.toggle('hidden', key !== page);
+                    });
+
+                    // Fetch data for feedback page
+                    if (page === 'feedback') {
+                        const token = localStorage.getItem('whatbot_admin_token');
+                        fetchFeedback(token);
+                    }
+                });
             });
         }
 
@@ -738,20 +847,33 @@
             window.location.href = '/shash';
         });
 
+        // Refresh handler
+        document.getElementById('refresh-btn').addEventListener('click', () => {
+            const token = localStorage.getItem('whatbot_admin_token');
+            if (token) {
+                fetchAnalytics(token);
+            }
+        });
+
         // Initialize
         async function init() {
             const token = await checkAuth();
 
             if (token) {
-                // Show user email
+                // Show user info
                 const user = JSON.parse(localStorage.getItem('whatbot_admin_user') || '{}');
-                document.getElementById('user-email').textContent = user.email || 'Admin';
+                const email = user.email || 'admin@whatbot.com';
+                document.getElementById('user-email').textContent = email;
+                document.getElementById('user-avatar').textContent = email.charAt(0).toUpperCase();
 
                 // Hide loading overlay
                 document.getElementById('loading-overlay').classList.add('hidden');
 
-                // Fetch dashboard data
-                await fetchDashboardData(token);
+                // Setup navigation
+                setupNavigation();
+
+                // Fetch initial data
+                await fetchAnalytics(token);
             }
         }
 
