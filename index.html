@@ -33,7 +33,7 @@
                 <a href="#how-it-works">How it works</a>
                 <a href="#pricing">Pricing</a>
             </div>
-            <a href="#" class="nav-cta">
+            <a href="https://chromewebstore.google.com/detail/whatbot/YOUR_EXTENSION_ID" target="_blank" class="nav-cta" id="nav-cta">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <circle cx="12" cy="12" r="10"/>
                     <circle cx="12" cy="12" r="4" fill="currentColor"/>
@@ -62,12 +62,12 @@
                         from your WhatsApp conversations.
                     </p>
                     <div class="hero-actions">
-                        <a href="#" class="btn btn-primary btn-lg">
+                        <a href="https://chromewebstore.google.com/detail/whatbot/YOUR_EXTENSION_ID" target="_blank" class="btn btn-primary btn-lg" id="hero-cta">
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <circle cx="12" cy="12" r="10"/>
                                 <circle cx="12" cy="12" r="4" fill="currentColor"/>
                             </svg>
-                            Start Free Trial
+                            Add to Chrome — Free
                         </a>
                         <a href="#how-it-works" class="btn btn-ghost">
                             See how it works
@@ -98,59 +98,74 @@
                     </div>
                 </div>
                 <div class="hero-visual">
-                    <div class="browser-mockup">
-                        <div class="browser-header">
-                            <div class="browser-dots">
-                                <span></span><span></span><span></span>
+                    <div class="hero-illustration">
+                        <!-- Before: Overwhelmed -->
+                        <div class="illustration-before">
+                            <div class="phone-stack">
+                                <div class="notification n1">
+                                    <span class="notif-avatar">👨‍👩‍👧</span>
+                                    <div class="notif-content">
+                                        <span class="notif-name">Family Group</span>
+                                        <span class="notif-badge">47</span>
+                                    </div>
+                                </div>
+                                <div class="notification n2">
+                                    <span class="notif-avatar">💼</span>
+                                    <div class="notif-content">
+                                        <span class="notif-name">Work Team</span>
+                                        <span class="notif-badge">89</span>
+                                    </div>
+                                </div>
+                                <div class="notification n3">
+                                    <span class="notif-avatar">🎉</span>
+                                    <div class="notif-content">
+                                        <span class="notif-name">Party Planning</span>
+                                        <span class="notif-badge">156</span>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="browser-url">web.whatsapp.com</div>
+                            <div class="emotion-icon stressed">😫</div>
+                            <p class="illustration-label">Before</p>
                         </div>
-                        <div class="browser-content">
-                            <div class="wa-sidebar">
-                                <div class="wa-chat active">
-                                    <div class="wa-avatar">FG</div>
-                                    <div class="wa-chat-info">
-                                        <span class="wa-name">Family Group</span>
-                                        <span class="wa-preview">Mom: Don't forget dinner...</span>
-                                    </div>
-                                    <span class="wa-badge">47</span>
+
+                        <!-- Arrow -->
+                        <div class="illustration-arrow">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </div>
+
+                        <!-- After: Relaxed -->
+                        <div class="illustration-after">
+                            <div class="summary-card">
+                                <div class="summary-card-header">
+                                    <span class="whatbot-icon">W</span>
+                                    <span>Summary Ready</span>
                                 </div>
-                                <div class="wa-chat">
-                                    <div class="wa-avatar wt">WT</div>
-                                    <div class="wa-chat-info">
-                                        <span class="wa-name">Work Team</span>
-                                        <span class="wa-preview">Meeting at 3pm...</span>
+                                <div class="summary-card-body">
+                                    <div class="summary-item">
+                                        <span class="summary-check">✓</span>
+                                        <span>Dinner at 7pm confirmed</span>
                                     </div>
+                                    <div class="summary-item">
+                                        <span class="summary-check">✓</span>
+                                        <span>Meeting moved to Thursday</span>
+                                    </div>
+                                    <div class="summary-item">
+                                        <span class="summary-check">✓</span>
+                                        <span>John brings the cake</span>
+                                    </div>
+                                </div>
+                                <div class="summary-card-time">
+                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="12" cy="12" r="10"/>
+                                        <path d="M12 6v6l4 2"/>
+                                    </svg>
+                                    30 seconds
                                 </div>
                             </div>
-                            <div class="wa-main">
-                                <div class="wa-messages">
-                                    <div class="wa-msg incoming">Anyone free for dinner?</div>
-                                    <div class="wa-msg outgoing">Yes! What time?</div>
-                                    <div class="wa-msg incoming">7 PM at our place</div>
-                                    <div class="wa-msg-more">+44 more messages</div>
-                                </div>
-                            </div>
-                            <div class="whatbot-panel">
-                                <div class="whatbot-header">
-                                    <span class="whatbot-logo">W</span>
-                                    <span>Whatbot</span>
-                                </div>
-                                <div class="whatbot-summary">
-                                    <div class="summary-section">
-                                        <span class="summary-label">TL;DR</span>
-                                        <p>Family dinner tonight at 7 PM. Dad's making pasta, Sarah brings dessert.</p>
-                                    </div>
-                                    <div class="summary-section">
-                                        <span class="summary-label">Key Points</span>
-                                        <ul>
-                                            <li>Dinner confirmed for 7 PM</li>
-                                            <li>Location: Parents' house</li>
-                                            <li>Everyone attending</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
+                            <div class="emotion-icon relaxed">😌</div>
+                            <p class="illustration-label">After</p>
                         </div>
                     </div>
                 </div>
@@ -320,7 +335,7 @@
                                 No credit card required
                             </li>
                         </ul>
-                        <a href="#" class="btn btn-secondary">Start Free Trial</a>
+                        <a href="https://chromewebstore.google.com/detail/whatbot/YOUR_EXTENSION_ID" target="_blank" class="btn btn-secondary">Start Free Trial</a>
                     </div>
                     <div class="pricing-card popular">
                         <div class="popular-badge">Most Popular</div>
@@ -329,7 +344,7 @@
                             <p class="pricing-description">Perfect for regular users</p>
                         </div>
                         <div class="pricing-price">
-                            <span class="price-amount">$2</span>
+                            <span class="price-amount" id="monthly-price">$2</span>
                             <span class="price-period">/month</span>
                         </div>
                         <ul class="pricing-features">
@@ -350,16 +365,16 @@
                                 Cancel anytime
                             </li>
                         </ul>
-                        <a href="#" class="btn btn-primary">Get Started</a>
+                        <a href="#" class="btn btn-primary" id="monthly-cta">Get Started</a>
                     </div>
                     <div class="pricing-card">
-                        <div class="save-badge">Save 37%</div>
+                        <div class="save-badge" id="save-badge">Save 37%</div>
                         <div class="pricing-header">
                             <h3>Annual</h3>
                             <p class="pricing-description">Best value for power users</p>
                         </div>
                         <div class="pricing-price">
-                            <span class="price-amount">$15</span>
+                            <span class="price-amount" id="annual-price">$15</span>
                             <span class="price-period">/year</span>
                         </div>
                         <ul class="pricing-features">
@@ -377,13 +392,13 @@
                             </li>
                             <li>
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
-                                2 months free
+                                <span id="save-months">2 months free</span>
                             </li>
                         </ul>
-                        <a href="#" class="btn btn-secondary">Get Started</a>
+                        <a href="#" class="btn btn-secondary" id="annual-cta">Get Started</a>
                     </div>
                 </div>
-                <p class="pricing-note">Prices shown in USD. Local pricing available for India (₹99/mo, ₹799/yr)</p>
+                <p class="pricing-note" id="pricing-note">Prices shown in USD. Local pricing available for India.</p>
             </div>
         </section>
 
@@ -446,14 +461,14 @@
                 <div class="cta-content">
                     <h2>Ready to save hours every week?</h2>
                     <p>Start your free 7-day trial today. No credit card required.</p>
-                    <a href="#" class="btn btn-white btn-lg">
+                    <a href="https://chromewebstore.google.com/detail/whatbot/YOUR_EXTENSION_ID" target="_blank" class="btn btn-white btn-lg" id="footer-cta">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <circle cx="12" cy="12" r="10"/>
                             <circle cx="12" cy="12" r="4" fill="currentColor"/>
                         </svg>
-                        Start Free Trial
+                        Add to Chrome — Free
                     </a>
-                    <span class="cta-note">7-day free trial, then just $2/month</span>
+                    <span class="cta-note" id="cta-note">7-day free trial, then just $2/month</span>
                 </div>
             </div>
         </section>

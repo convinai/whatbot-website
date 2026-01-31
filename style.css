@@ -377,260 +377,213 @@ img, svg {
 }
 
 /* =============================================
-   Hero Visual / Browser Mockup
+   Hero Visual / Emotional Illustration
    ============================================= */
 
 .hero-visual {
     position: relative;
 }
 
-.browser-mockup {
-    background: var(--gray-800);
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: var(--shadow-2xl);
+.hero-illustration {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    padding: 2rem;
 }
 
-.browser-header {
+@media (max-width: 640px) {
+    .hero-illustration {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
+    }
+}
+
+.illustration-before,
+.illustration-after {
     display: flex;
+    flex-direction: column;
     align-items: center;
     gap: 1rem;
-    padding: 0.625rem 1rem;
-    background: var(--gray-700);
 }
 
-.browser-dots {
-    display: flex;
-    gap: 5px;
-}
-
-.browser-dots span {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-}
-
-.browser-dots span:nth-child(1) { background: #ff5f57; }
-.browser-dots span:nth-child(2) { background: #ffbd2e; }
-.browser-dots span:nth-child(3) { background: #28ca41; }
-
-.browser-url {
-    flex: 1;
-    padding: 0.25rem 0.625rem;
-    font-size: 0.6875rem;
-    color: var(--gray-400);
-    background: var(--gray-800);
-    border-radius: 4px;
-    text-align: center;
-}
-
-.browser-content {
-    display: grid;
-    grid-template-columns: 120px 1fr 160px;
-    height: 280px;
-    background: #111b21;
-}
-
-@media (max-width: 768px) {
-    .browser-content {
-        grid-template-columns: 1fr 140px;
-        height: 240px;
-    }
-    .wa-sidebar {
-        display: none;
-    }
-}
-
-/* WhatsApp Sidebar */
-.wa-sidebar {
-    background: #111b21;
-    border-right: 1px solid #222d34;
-    padding: 0.375rem;
-}
-
-.wa-chat {
-    display: flex;
-    align-items: center;
-    gap: 0.375rem;
-    padding: 0.375rem;
-    border-radius: 6px;
-    cursor: pointer;
-}
-
-.wa-chat.active {
-    background: #2a3942;
-}
-
-.wa-avatar {
-    width: 32px;
-    height: 32px;
-    background: var(--green-primary);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.625rem;
-    font-weight: 600;
-    color: white;
-    flex-shrink: 0;
-}
-
-.wa-avatar.wt {
-    background: var(--gray-500);
-}
-
-.wa-chat-info {
-    flex: 1;
-    min-width: 0;
-    overflow: hidden;
-}
-
-.wa-name {
-    display: block;
-    font-size: 0.6875rem;
-    font-weight: 500;
-    color: #e9edef;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-.wa-preview {
-    display: block;
-    font-size: 0.5625rem;
-    color: #8696a0;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-.wa-badge {
-    background: var(--green-primary);
-    color: white;
-    font-size: 0.5625rem;
-    font-weight: 600;
-    padding: 0.125rem 0.3rem;
-    border-radius: 8px;
-}
-
-/* WhatsApp Main */
-.wa-main {
-    background: #0b141a;
-    padding: 0.75rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.wa-messages {
-    display: flex;
-    flex-direction: column;
-    gap: 0.375rem;
-}
-
-.wa-msg {
-    padding: 0.3rem 0.5rem;
-    border-radius: 4px;
-    font-size: 0.625rem;
-    max-width: 85%;
-}
-
-.wa-msg.incoming {
-    background: #202c33;
-    color: #e9edef;
-    align-self: flex-start;
-}
-
-.wa-msg.outgoing {
-    background: #005c4b;
-    color: #e9edef;
-    align-self: flex-end;
-}
-
-.wa-msg-more {
-    text-align: center;
-    font-size: 0.5625rem;
-    color: #8696a0;
-    padding: 0.375rem;
-}
-
-/* Whatbot Panel */
-.whatbot-panel {
-    background: var(--white);
-    border-left: 1px solid var(--gray-200);
-    display: flex;
-    flex-direction: column;
-}
-
-.whatbot-header {
-    display: flex;
-    align-items: center;
-    gap: 0.375rem;
-    padding: 0.5rem 0.625rem;
-    background: linear-gradient(135deg, var(--green-primary) 0%, var(--green-dark) 100%);
-    color: white;
+.illustration-label {
     font-size: 0.75rem;
     font-weight: 600;
+    color: var(--gray-400);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
 }
 
-.whatbot-logo {
-    width: 20px;
-    height: 20px;
+/* Before: Notification Stack */
+.phone-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    position: relative;
+}
+
+.notification {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    border-radius: 12px;
+    box-shadow: var(--shadow-md);
+    min-width: 180px;
+    animation: shake 2s ease-in-out infinite;
+}
+
+.notification.n1 { animation-delay: 0s; }
+.notification.n2 { animation-delay: 0.3s; }
+.notification.n3 { animation-delay: 0.6s; }
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-2px); }
+    20%, 40%, 60%, 80% { transform: translateX(2px); }
+}
+
+.notif-avatar {
+    font-size: 1.25rem;
+}
+
+.notif-content {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+}
+
+.notif-name {
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: var(--gray-700);
+}
+
+.notif-badge {
+    background: #ef4444;
+    color: white;
+    font-size: 0.6875rem;
+    font-weight: 700;
+    padding: 0.125rem 0.5rem;
+    border-radius: 10px;
+}
+
+/* Emotion Icons */
+.emotion-icon {
+    font-size: 3rem;
+    line-height: 1;
+}
+
+.emotion-icon.stressed {
+    animation: stressed 1s ease-in-out infinite;
+}
+
+@keyframes stressed {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+.emotion-icon.relaxed {
+    animation: relaxed 2s ease-in-out infinite;
+}
+
+@keyframes relaxed {
+    0%, 100% { transform: scale(1) rotate(0deg); }
+    50% { transform: scale(1.05) rotate(2deg); }
+}
+
+/* Arrow */
+.illustration-arrow {
+    color: var(--green-primary);
+    padding: 0 0.5rem;
+}
+
+.illustration-arrow svg {
+    width: 32px;
+    height: 32px;
+}
+
+@media (max-width: 640px) {
+    .illustration-arrow {
+        transform: rotate(90deg);
+    }
+}
+
+/* After: Summary Card */
+.summary-card {
+    background: var(--white);
+    border: 2px solid var(--green-primary);
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(37, 211, 102, 0.2);
+    overflow: hidden;
+    min-width: 200px;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}
+
+.summary-card-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1rem;
+    background: linear-gradient(135deg, var(--green-primary) 0%, var(--green-dark) 100%);
+    color: white;
+    font-size: 0.8125rem;
+    font-weight: 600;
+}
+
+.whatbot-icon {
+    width: 22px;
+    height: 22px;
     background: rgba(255,255,255,0.2);
-    border-radius: 4px;
+    border-radius: 6px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 0.625rem;
+    font-size: 0.75rem;
     font-weight: 700;
 }
 
-.whatbot-summary {
-    padding: 0.625rem;
-    flex: 1;
-    overflow: hidden;
+.summary-card-body {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
 }
 
-.summary-section {
-    margin-bottom: 0.625rem;
-}
-
-.summary-label {
-    display: block;
-    font-size: 0.5625rem;
-    font-weight: 700;
-    color: var(--green-dark);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    margin-bottom: 0.2rem;
-}
-
-.summary-section p {
-    font-size: 0.625rem;
-    color: var(--gray-600);
-    line-height: 1.4;
-}
-
-.summary-section ul {
-    font-size: 0.5625rem;
+.summary-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    font-size: 0.8125rem;
     color: var(--gray-600);
 }
 
-.summary-section li {
-    position: relative;
-    padding-left: 0.625rem;
-    margin-bottom: 0.125rem;
+.summary-check {
+    color: var(--green-primary);
+    font-weight: 600;
 }
 
-.summary-section li::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0.3rem;
-    width: 3px;
-    height: 3px;
-    background: var(--green-primary);
-    border-radius: 50%;
+.summary-card-time {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.375rem;
+    padding: 0.5rem 1rem;
+    background: var(--gray-50);
+    font-size: 0.75rem;
+    color: var(--gray-500);
+    border-top: 1px solid var(--gray-100);
 }
 
 /* =============================================
