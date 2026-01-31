@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Admin Login | Whatbot</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔐</text></svg>">
+    <style>
+        :root {
+            --green-primary: #25D366;
+            --green-dark: #128C7E;
+            --green-darker: #075E54;
+            --white: #ffffff;
+            --gray-50: #fafafa;
+            --gray-100: #f5f5f5;
+            --gray-200: #e5e5e5;
+            --gray-300: #d4d4d4;
+            --gray-400: #a3a3a4;
+            --gray-500: #737373;
+            --gray-600: #525252;
+            --gray-700: #404040;
+            --gray-800: #262626;
+            --gray-900: #171717;
+            --red-500: #ef4444;
+            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background: linear-gradient(135deg, var(--gray-900) 0%, var(--gray-800) 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+        }
+
+        .login-container {
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .login-card {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 2.5rem;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+
+        .login-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .login-logo {
+            width: 48px;
+            height: 48px;
+            margin: 0 auto 1rem;
+        }
+
+        .login-logo svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .login-header h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 0.25rem;
+        }
+
+        .login-header p {
+            font-size: 0.875rem;
+            color: var(--gray-500);
+        }
+
+        .form-group {
+            margin-bottom: 1.25rem;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--gray-700);
+            margin-bottom: 0.5rem;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            font-size: 0.9375rem;
+            font-family: inherit;
+            color: var(--gray-900);
+            background: var(--white);
+            border: 1px solid var(--gray-300);
+            border-radius: 8px;
+            transition: all 0.2s;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--green-primary);
+            box-shadow: 0 0 0 3px rgba(37, 211, 102, 0.15);
+        }
+
+        .form-input::placeholder {
+            color: var(--gray-400);
+        }
+
+        .btn-login {
+            width: 100%;
+            padding: 0.875rem 1.5rem;
+            font-size: 0.9375rem;
+            font-weight: 600;
+            font-family: inherit;
+            color: var(--white);
+            background: var(--green-primary);
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .btn-login:hover {
+            background: var(--green-dark);
+            transform: translateY(-1px);
+        }
+
+        .btn-login:disabled {
+            background: var(--gray-300);
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .btn-login .spinner {
+            width: 18px;
+            height: 18px;
+            border: 2px solid rgba(255,255,255,0.3);
+            border-top-color: white;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+            display: none;
+        }
+
+        .btn-login.loading .spinner {
+            display: block;
+        }
+
+        .btn-login.loading .btn-text {
+            display: none;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .error-message {
+            background: rgba(239, 68, 68, 0.1);
+            border: 1px solid rgba(239, 68, 68, 0.2);
+            color: var(--red-500);
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            font-size: 0.875rem;
+            margin-bottom: 1.25rem;
+            display: none;
+        }
+
+        .error-message.show {
+            display: block;
+        }
+
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 1.5rem;
+            font-size: 0.875rem;
+            color: var(--gray-500);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .back-link:hover {
+            color: var(--green-primary);
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-card">
+            <div class="login-header">
+                <div class="login-logo">
+                    <svg viewBox="0 0 32 32" fill="none">
+                        <rect width="32" height="32" rx="8" fill="#25D366"/>
+                        <path d="M16 6C10.5 6 6 10 6 15c0 2.5 1 4.8 2.8 6.5V26l4.2-2.3c1 .3 2 .4 3 .4 5.5 0 10-4 10-9s-4.5-9-10-9z" fill="white" fill-opacity="0.95"/>
+                        <rect x="11" y="12" width="10" height="7" rx="2" fill="white" stroke="#128C7E" stroke-width="1"/>
+                        <circle cx="13.5" cy="14.5" r="1" fill="#128C7E"/>
+                        <circle cx="18.5" cy="14.5" r="1" fill="#128C7E"/>
+                        <rect x="12.5" y="16.5" width="7" height="1.5" rx="0.75" fill="#25D366"/>
+                    </svg>
+                </div>
+                <h1>Admin Login</h1>
+                <p>Sign in to access the dashboard</p>
+            </div>
+
+            <div class="error-message" id="error-message"></div>
+
+            <form id="login-form">
+                <div class="form-group">
+                    <label class="form-label" for="email">Email</label>
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        class="form-input"
+                        placeholder="admin@whatbotai.online"
+                        required
+                        autocomplete="email"
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="password">Password</label>
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        class="form-input"
+                        placeholder="Enter your password"
+                        required
+                        autocomplete="current-password"
+                    >
+                </div>
+
+                <button type="submit" class="btn-login" id="login-btn">
+                    <span class="spinner"></span>
+                    <span class="btn-text">Sign In</span>
+                </button>
+            </form>
+
+            <a href="/" class="back-link">Back to Whatbot</a>
+        </div>
+    </div>
+
+    <script>
+        const BACKEND_URL = 'https://backend-five-alpha-21.vercel.app';
+
+        const form = document.getElementById('login-form');
+        const loginBtn = document.getElementById('login-btn');
+        const errorMessage = document.getElementById('error-message');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            // Clear previous error
+            errorMessage.classList.remove('show');
+
+            // Show loading state
+            loginBtn.classList.add('loading');
+            loginBtn.disabled = true;
+
+            try {
+                const response = await fetch(`${BACKEND_URL}/api/auth/login`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ email, password })
+                });
+
+                const data = await response.json();
+
+                if (data.success && data.token) {
+                    // Store the token
+                    localStorage.setItem('whatbot_admin_token', data.token);
+                    localStorage.setItem('whatbot_admin_user', JSON.stringify({ email }));
+
+                    // Redirect to dashboard
+                    window.location.href = '/admin-dashboard';
+                } else {
+                    throw new Error(data.error || 'Invalid credentials');
+                }
+            } catch (error) {
+                errorMessage.textContent = error.message || 'Login failed. Please try again.';
+                errorMessage.classList.add('show');
+            } finally {
+                loginBtn.classList.remove('loading');
+                loginBtn.disabled = false;
+            }
+        });
+
+        // Check if already logged in
+        const token = localStorage.getItem('whatbot_admin_token');
+        if (token) {
+            // Verify token is still valid
+            fetch(`${BACKEND_URL}/api/auth/verify`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                }
+            })
+            .then(res => res.json())
+            .then(data => {
+                if (data.success && data.valid) {
+                    window.location.href = '/admin-dashboard';
+                } else {
+                    localStorage.removeItem('whatbot_admin_token');
+                    localStorage.removeItem('whatbot_admin_user');
+                }
+            })
+            .catch(() => {
+                // Token verification failed, stay on login page
+            });
+        }
+    </script>
+</body>
+</html>

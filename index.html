@@ -32,6 +32,7 @@
                 <a href="#features">Features</a>
                 <a href="#how-it-works">How it works</a>
                 <a href="#pricing">Pricing</a>
+                <a href="#faq">FAQ</a>
             </div>
             <a href="https://chromewebstore.google.com/detail/whatbot/YOUR_EXTENSION_ID" target="_blank" class="nav-cta" id="nav-cta">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -402,54 +403,128 @@
             </div>
         </section>
 
-        <!-- Privacy Section -->
-        <section class="privacy" id="privacy">
+        <!-- What Gets Summarized -->
+        <section class="what-summarized" id="what-summarized">
             <div class="section-container">
-                <div class="privacy-grid">
-                    <div class="privacy-visual">
-                        <div class="shield">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                                <path d="M9 12l2 2 4-4" stroke-width="2"/>
+                <div class="section-header">
+                    <span class="section-label">How it works</span>
+                    <h2>What exactly gets summarized?</h2>
+                    <p>Full transparency on what Whatbot reads and processes.</p>
+                </div>
+                <div class="summarized-grid">
+                    <div class="summarized-card included">
+                        <h3>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                            Included
+                        </h3>
+                        <ul>
+                            <li>Text messages in the currently open chat</li>
+                            <li>Messages from the selected time range (today, 7 days, etc.)</li>
+                            <li>Sender names for context</li>
+                            <li>Message timestamps</li>
+                        </ul>
+                    </div>
+                    <div class="summarized-card excluded">
+                        <h3>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+                            Excluded
+                        </h3>
+                        <ul>
+                            <li>Images, videos, and voice notes</li>
+                            <li>Other chats you're not viewing</li>
+                            <li>Deleted messages</li>
+                            <li>Your contact list or phone number</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Trust Box / Privacy -->
+        <section class="trust-section" id="privacy">
+            <div class="section-container">
+                <div class="trust-box">
+                    <div class="trust-header">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                            <path d="M9 12l2 2 4-4" stroke-width="2"/>
+                        </svg>
+                        <h2>Your privacy, protected</h2>
+                    </div>
+                    <div class="trust-items">
+                        <div class="trust-item-box">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="2" y="3" width="20" height="14" rx="2"/>
+                                <path d="M8 21h8M12 17v4"/>
                             </svg>
+                            <span>Runs entirely in your browser</span>
+                        </div>
+                        <div class="trust-item-box">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M4 7v10c0 2 1 3 3 3h10c2 0 3-1 3-3V7c0-2-1-3-3-3H7c-2 0-3 1-3 3z"/>
+                                <path d="M9 11h6M12 8v6"/>
+                            </svg>
+                            <span>No servers storing your chats</span>
+                        </div>
+                        <div class="trust-item-box">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="11" width="18" height="11" rx="2"/>
+                                <path d="M7 11V7a5 5 0 0110 0v4"/>
+                            </svg>
+                            <span>Uses your own API key</span>
+                        </div>
+                        <div class="trust-item-box">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="3 6 5 6 21 6"/>
+                                <path d="M19 6l-2 14H7L5 6"/>
+                                <path d="M10 11v6M14 11v6"/>
+                                <path d="M9 6V4h6v2"/>
+                            </svg>
+                            <span>Delete everything by uninstalling</span>
                         </div>
                     </div>
-                    <div class="privacy-content">
-                        <span class="section-label">Privacy First</span>
-                        <h2>Your privacy is sacred</h2>
-                        <p class="privacy-intro">We built Whatbot with a simple principle: your conversations are none of our business.</p>
-                        <ul class="privacy-list">
-                            <li>
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-                                    <polyline points="20 6 9 17 4 12"/>
-                                </svg>
-                                <span>Messages processed locally, never stored</span>
-                            </li>
-                            <li>
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-                                    <polyline points="20 6 9 17 4 12"/>
-                                </svg>
-                                <span>End-to-end encrypted summaries</span>
-                            </li>
-                            <li>
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-                                    <polyline points="20 6 9 17 4 12"/>
-                                </svg>
-                                <span>No tracking, no analytics on content</span>
-                            </li>
-                            <li>
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-                                    <polyline points="20 6 9 17 4 12"/>
-                                </svg>
-                                <span>GDPR compliant</span>
-                            </li>
-                        </ul>
-                        <a href="https://whatbot-privacy.vercel.app" class="privacy-link" target="_blank">
-                            Read our privacy policy
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M7 17L17 7M17 7H7M17 7V17"/>
-                            </svg>
-                        </a>
+                    <a href="/privacy" class="trust-link">
+                        Read full privacy policy
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq" id="faq">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-label">FAQ</span>
+                    <h2>Frequently asked questions</h2>
+                    <p>Everything you need to know about Whatbot.</p>
+                </div>
+                <div class="faq-grid">
+                    <div class="faq-item">
+                        <h3>Does it read all my chats or only the open one?</h3>
+                        <p>Only the currently open chat. Whatbot can only see messages in the chat you're actively viewing in WhatsApp Web. It cannot access your other conversations, contact list, or any data outside the visible chat window.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>What permissions does it need?</h3>
+                        <p>Three permissions: <strong>activeTab</strong> (to detect WhatsApp Web), <strong>storage</strong> (to save your preferences locally), and <strong>web.whatsapp.com</strong> access (to read messages for summarization). No access to other websites or your browsing history.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>Does it store my messages?</h3>
+                        <p>No. Messages are read, sent to the AI for summarization, and then discarded. Only the generated summaries are stored locally on your device. We have no servers - we literally cannot store your messages.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>Can I use it without an API key?</h3>
+                        <p>Yes! Whatbot provides a hosted API during your trial and subscription. You only need your own API key if you prefer to use your personal OpenAI, Anthropic, or Google AI account.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>Is it safe to use for work conversations?</h3>
+                        <p>The same security considerations apply as using any AI tool with work data. Messages are sent to AI providers (OpenAI/Anthropic/Google) for processing. For highly sensitive business conversations, check your company's AI usage policy first.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>What happens after the free trial?</h3>
+                        <p>After 7 days, you'll need to subscribe to continue using Whatbot. Your saved summaries remain accessible. If you don't subscribe, the extension simply stops generating new summaries - no data is deleted.</p>
                     </div>
                 </div>
             </div>
@@ -499,13 +574,13 @@
                     </div>
                     <div class="footer-col">
                         <h4>Legal</h4>
-                        <a href="https://whatbot-privacy.vercel.app" target="_blank">Privacy Policy</a>
-                        <a href="#">Terms of Service</a>
+                        <a href="/privacy" target="_blank">Privacy Policy</a>
+                        <a href="/terms">Terms of Service</a>
                     </div>
                     <div class="footer-col">
                         <h4>Support</h4>
                         <a href="mailto:whatbot.extension@gmail.com">Contact</a>
-                        <a href="#">FAQ</a>
+                        <a href="#faq">FAQ</a>
                     </div>
                 </div>
             </div>

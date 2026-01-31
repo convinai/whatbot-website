@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Admin Dashboard | Whatbot</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📊</text></svg>">
+    <style>
+        :root {
+            --green-primary: #25D366;
+            --green-dark: #128C7E;
+            --green-darker: #075E54;
+            --white: #ffffff;
+            --gray-50: #fafafa;
+            --gray-100: #f5f5f5;
+            --gray-200: #e5e5e5;
+            --gray-300: #d4d4d4;
+            --gray-400: #a3a3a3;
+            --gray-500: #737373;
+            --gray-600: #525252;
+            --gray-700: #404040;
+            --gray-800: #262626;
+            --gray-900: #171717;
+            --red-500: #ef4444;
+            --blue-500: #3b82f6;
+            --yellow-500: #eab308;
+            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background: var(--gray-100);
+            min-height: 100vh;
+            color: var(--gray-700);
+        }
+
+        /* Header */
+        .admin-header {
+            background: var(--white);
+            border-bottom: 1px solid var(--gray-200);
+            padding: 0.875rem 1.5rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 700;
+            color: var(--gray-900);
+            text-decoration: none;
+        }
+
+        .logo svg {
+            width: 28px;
+            height: 28px;
+        }
+
+        .admin-badge {
+            background: var(--gray-100);
+            color: var(--gray-600);
+            font-size: 0.6875rem;
+            font-weight: 600;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .user-info {
+            font-size: 0.875rem;
+            color: var(--gray-600);
+        }
+
+        .btn-logout {
+            padding: 0.5rem 1rem;
+            font-size: 0.8125rem;
+            font-weight: 500;
+            color: var(--gray-600);
+            background: var(--white);
+            border: 1px solid var(--gray-200);
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-logout:hover {
+            background: var(--gray-50);
+            color: var(--red-500);
+            border-color: var(--red-500);
+        }
+
+        /* Main Content */
+        .admin-main {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+
+        .page-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 2rem;
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        @media (min-width: 640px) {
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .stats-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        .stat-card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .stat-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 0.75rem;
+        }
+
+        .stat-label {
+            font-size: 0.8125rem;
+            font-weight: 500;
+            color: var(--gray-500);
+        }
+
+        .stat-icon {
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+        }
+
+        .stat-icon.green {
+            background: rgba(37, 211, 102, 0.1);
+            color: var(--green-primary);
+        }
+
+        .stat-icon.blue {
+            background: rgba(59, 130, 246, 0.1);
+            color: var(--blue-500);
+        }
+
+        .stat-icon.yellow {
+            background: rgba(234, 179, 8, 0.1);
+            color: var(--yellow-500);
+        }
+
+        .stat-icon svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--gray-900);
+            line-height: 1;
+            margin-bottom: 0.25rem;
+        }
+
+        .stat-change {
+            font-size: 0.75rem;
+            color: var(--green-primary);
+        }
+
+        .stat-change.negative {
+            color: var(--red-500);
+        }
+
+        /* Content Sections */
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        @media (min-width: 1024px) {
+            .content-grid {
+                grid-template-columns: 2fr 1fr;
+            }
+        }
+
+        .content-card {
+            background: var(--white);
+            border-radius: 12px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1.25rem 1.5rem;
+            border-bottom: 1px solid var(--gray-100);
+        }
+
+        .card-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--gray-900);
+        }
+
+        .card-action {
+            font-size: 0.8125rem;
+            color: var(--green-primary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .card-action:hover {
+            text-decoration: underline;
+        }
+
+        .card-body {
+            padding: 1.5rem;
+        }
+
+        /* Recent Users Table */
+        .users-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .users-table th,
+        .users-table td {
+            text-align: left;
+            padding: 0.75rem 0;
+            font-size: 0.875rem;
+        }
+
+        .users-table th {
+            font-weight: 500;
+            color: var(--gray-500);
+            border-bottom: 1px solid var(--gray-100);
+        }
+
+        .users-table td {
+            color: var(--gray-700);
+            border-bottom: 1px solid var(--gray-50);
+        }
+
+        .users-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .user-email {
+            font-weight: 500;
+            color: var(--gray-900);
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 0.25rem 0.625rem;
+            font-size: 0.6875rem;
+            font-weight: 600;
+            border-radius: 100px;
+            text-transform: uppercase;
+        }
+
+        .status-badge.active {
+            background: rgba(37, 211, 102, 0.1);
+            color: var(--green-dark);
+        }
+
+        .status-badge.trial {
+            background: rgba(59, 130, 246, 0.1);
+            color: var(--blue-500);
+        }
+
+        .status-badge.expired {
+            background: rgba(239, 68, 68, 0.1);
+            color: var(--red-500);
+        }
+
+        /* Quick Actions */
+        .quick-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .action-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem;
+            background: var(--gray-50);
+            border: 1px solid var(--gray-100);
+            border-radius: 8px;
+            text-decoration: none;
+            color: var(--gray-700);
+            font-size: 0.9375rem;
+            font-weight: 500;
+            transition: all 0.2s;
+            cursor: pointer;
+        }
+
+        .action-btn:hover {
+            background: var(--white);
+            border-color: var(--green-primary);
+            color: var(--green-primary);
+        }
+
+        .action-btn svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        /* Loading State */
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+
+        .loading-spinner {
+            width: 40px;
+            height: 40px;
+            border: 3px solid var(--gray-200);
+            border-top-color: var(--green-primary);
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        /* Empty State */
+        .empty-state {
+            text-align: center;
+            padding: 2rem;
+            color: var(--gray-500);
+        }
+
+        .empty-state svg {
+            width: 48px;
+            height: 48px;
+            margin-bottom: 1rem;
+            opacity: 0.5;
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loading-overlay">
+        <div class="loading-spinner"></div>
+    </div>
+
+    <!-- Header -->
+    <header class="admin-header">
+        <div class="header-content">
+            <div class="header-left">
+                <a href="/" class="logo">
+                    <svg viewBox="0 0 32 32" fill="none">
+                        <rect width="32" height="32" rx="8" fill="#25D366"/>
+                        <path d="M16 6C10.5 6 6 10 6 15c0 2.5 1 4.8 2.8 6.5V26l4.2-2.3c1 .3 2 .4 3 .4 5.5 0 10-4 10-9s-4.5-9-10-9z" fill="white" fill-opacity="0.95"/>
+                    </svg>
+                    Whatbot
+                </a>
+                <span class="admin-badge">Admin</span>
+            </div>
+            <div class="header-right">
+                <span class="user-info" id="user-email"></span>
+                <button class="btn-logout" id="logout-btn">Logout</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="admin-main">
+        <h1 class="page-title">Dashboard</h1>
+
+        <!-- Stats Grid -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-header">
+                    <span class="stat-label">Total Users</span>
+                    <div class="stat-icon green">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                            <circle cx="9" cy="7" r="4"/>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                        </svg>
+                    </div>
+                </div>
+                <div class="stat-value" id="stat-total-users">-</div>
+                <div class="stat-change" id="stat-users-change">Loading...</div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-header">
+                    <span class="stat-label">Active Subscriptions</span>
+                    <div class="stat-icon green">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                            <polyline points="22 4 12 14.01 9 11.01"/>
+                        </svg>
+                    </div>
+                </div>
+                <div class="stat-value" id="stat-active-subs">-</div>
+                <div class="stat-change" id="stat-subs-change">Loading...</div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-header">
+                    <span class="stat-label">Trial Users</span>
+                    <div class="stat-icon blue">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <polyline points="12 6 12 12 16 14"/>
+                        </svg>
+                    </div>
+                </div>
+                <div class="stat-value" id="stat-trial-users">-</div>
+                <div class="stat-change" id="stat-trial-change">Loading...</div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-header">
+                    <span class="stat-label">Monthly Revenue</span>
+                    <div class="stat-icon yellow">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="12" y1="1" x2="12" y2="23"/>
+                            <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                        </svg>
+                    </div>
+                </div>
+                <div class="stat-value" id="stat-revenue">-</div>
+                <div class="stat-change" id="stat-revenue-change">Loading...</div>
+            </div>
+        </div>
+
+        <!-- Content Grid -->
+        <div class="content-grid">
+            <!-- Recent Users -->
+            <div class="content-card">
+                <div class="card-header">
+                    <h2 class="card-title">Recent Users</h2>
+                    <a href="#" class="card-action">View All</a>
+                </div>
+                <div class="card-body">
+                    <table class="users-table" id="users-table">
+                        <thead>
+                            <tr>
+                                <th>User</th>
+                                <th>Status</th>
+                                <th>Joined</th>
+                            </tr>
+                        </thead>
+                        <tbody id="users-tbody">
+                            <tr>
+                                <td colspan="3" class="empty-state">Loading...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Quick Actions -->
+            <div class="content-card">
+                <div class="card-header">
+                    <h2 class="card-title">Quick Actions</h2>
+                </div>
+                <div class="card-body">
+                    <div class="quick-actions">
+                        <a href="#" class="action-btn" id="action-users">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                                <circle cx="9" cy="7" r="4"/>
+                            </svg>
+                            Manage Users
+                        </a>
+                        <a href="#" class="action-btn" id="action-pricing">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="12" y1="1" x2="12" y2="23"/>
+                                <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                            </svg>
+                            Update Pricing
+                        </a>
+                        <a href="#" class="action-btn" id="action-analytics">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="18" y1="20" x2="18" y2="10"/>
+                                <line x1="12" y1="20" x2="12" y2="4"/>
+                                <line x1="6" y1="20" x2="6" y2="14"/>
+                            </svg>
+                            View Analytics
+                        </a>
+                        <a href="#" class="action-btn" id="action-settings">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="3"/>
+                                <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+                            </svg>
+                            Settings
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        const BACKEND_URL = 'https://backend-five-alpha-21.vercel.app';
+
+        // Check authentication
+        async function checkAuth() {
+            const token = localStorage.getItem('whatbot_admin_token');
+
+            if (!token) {
+                window.location.href = '/shash';
+                return null;
+            }
+
+            try {
+                const response = await fetch(`${BACKEND_URL}/api/auth/verify`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${token}`
+                    }
+                });
+
+                const data = await response.json();
+
+                if (!data.success || !data.valid) {
+                    localStorage.removeItem('whatbot_admin_token');
+                    localStorage.removeItem('whatbot_admin_user');
+                    window.location.href = '/shash';
+                    return null;
+                }
+
+                return token;
+            } catch (error) {
+                console.error('Auth check failed:', error);
+                window.location.href = '/shash';
+                return null;
+            }
+        }
+
+        // Fetch dashboard data
+        async function fetchDashboardData(token) {
+            try {
+                // Fetch stats and users in parallel
+                const [statsResponse, usersResponse] = await Promise.all([
+                    fetch(`${BACKEND_URL}/api/stats`, {
+                        headers: {
+                            'Authorization': `Bearer ${token}`
+                        }
+                    }),
+                    fetch(`${BACKEND_URL}/api/stats/users`, {
+                        headers: {
+                            'Authorization': `Bearer ${token}`
+                        }
+                    })
+                ]);
+
+                const statsData = await statsResponse.json();
+                const usersData = await usersResponse.json();
+
+                // Combine the data
+                const dashboardData = {
+                    stats: {
+                        totalUsers: usersData.data?.users?.length || 0,
+                        activeSubscriptions: 0, // Will be calculated from users
+                        trialUsers: 0, // Will be calculated
+                        monthlyRevenue: 0, // Placeholder
+                    },
+                    recentUsers: []
+                };
+
+                // Process users data
+                if (usersData.success && usersData.data?.users) {
+                    const users = usersData.data.users;
+                    dashboardData.stats.totalUsers = users.length;
+
+                    // Get recent users (sort by activity and take last 5)
+                    dashboardData.recentUsers = users
+                        .slice(0, 5)
+                        .map(u => ({
+                            email: u.userId || 'Unknown',
+                            status: u.monthlyRequests > 0 ? 'active' : 'trial',
+                            createdAt: new Date().toISOString()
+                        }));
+
+                    // Count active users (users with requests this month)
+                    dashboardData.stats.activeSubscriptions = users.filter(u => u.monthlyRequests > 0).length;
+                    dashboardData.stats.trialUsers = users.filter(u => u.monthlyRequests === 0).length;
+                }
+
+                // Process stats data
+                if (statsData.success && statsData.data) {
+                    dashboardData.stats.totalRequests = statsData.data.totalRequests || 0;
+                    dashboardData.stats.todayRequests = statsData.data.todayRequests || 0;
+                }
+
+                updateDashboard(dashboardData);
+            } catch (error) {
+                console.error('Failed to fetch dashboard data:', error);
+                // Show error state
+                updateDashboard({
+                    stats: {
+                        totalUsers: '-',
+                        activeSubscriptions: '-',
+                        trialUsers: '-',
+                        monthlyRevenue: '-',
+                    },
+                    recentUsers: []
+                });
+            }
+        }
+
+        // Update dashboard with data
+        function updateDashboard(data) {
+            // Update stats
+            if (data.stats) {
+                document.getElementById('stat-total-users').textContent = data.stats.totalUsers || 0;
+                document.getElementById('stat-active-subs').textContent = data.stats.activeSubscriptions || 0;
+                document.getElementById('stat-trial-users').textContent = data.stats.trialUsers || 0;
+                document.getElementById('stat-revenue').textContent = data.stats.monthlyRevenue ? `$${data.stats.monthlyRevenue}` : '$0';
+
+                // Update change indicators
+                document.getElementById('stat-users-change').textContent = data.stats.usersChange || 'All time';
+                document.getElementById('stat-subs-change').textContent = data.stats.subsChange || 'Active';
+                document.getElementById('stat-trial-change').textContent = data.stats.trialChange || 'In trial period';
+                document.getElementById('stat-revenue-change').textContent = data.stats.revenueChange || 'This month';
+            }
+
+            // Update recent users table
+            if (data.recentUsers && data.recentUsers.length > 0) {
+                const tbody = document.getElementById('users-tbody');
+                tbody.innerHTML = data.recentUsers.map(user => `
+                    <tr>
+                        <td class="user-email">${user.email || 'N/A'}</td>
+                        <td>
+                            <span class="status-badge ${getStatusClass(user.status)}">${user.status || 'Unknown'}</span>
+                        </td>
+                        <td>${formatDate(user.createdAt)}</td>
+                    </tr>
+                `).join('');
+            } else {
+                document.getElementById('users-tbody').innerHTML = `
+                    <tr>
+                        <td colspan="3" class="empty-state">No users yet</td>
+                    </tr>
+                `;
+            }
+        }
+
+        function getStatusClass(status) {
+            if (!status) return 'trial';
+            const s = status.toLowerCase();
+            if (s === 'active' || s === 'subscribed') return 'active';
+            if (s === 'trial' || s === 'trialing') return 'trial';
+            return 'expired';
+        }
+
+        function formatDate(dateStr) {
+            if (!dateStr) return 'N/A';
+            const date = new Date(dateStr);
+            return date.toLocaleDateString('en-US', {
+                month: 'short',
+                day: 'numeric',
+                year: 'numeric'
+            });
+        }
+
+        // Logout handler
+        document.getElementById('logout-btn').addEventListener('click', () => {
+            localStorage.removeItem('whatbot_admin_token');
+            localStorage.removeItem('whatbot_admin_user');
+            window.location.href = '/shash';
+        });
+
+        // Initialize
+        async function init() {
+            const token = await checkAuth();
+
+            if (token) {
+                // Show user email
+                const user = JSON.parse(localStorage.getItem('whatbot_admin_user') || '{}');
+                document.getElementById('user-email').textContent = user.email || 'Admin';
+
+                // Hide loading overlay
+                document.getElementById('loading-overlay').classList.add('hidden');
+
+                // Fetch dashboard data
+                await fetchDashboardData(token);
+            }
+        }
+
+        init();
+    </script>
+</body>
+</html>

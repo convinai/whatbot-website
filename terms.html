@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Whatbot Terms of Service - Terms and conditions for using Whatbot.">
+    <title>Terms of Service - Whatbot</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💬</text></svg>">
+    <style>
+        .terms-page {
+            padding: 8rem 1.5rem 4rem;
+            min-height: 100vh;
+            background: var(--gray-50);
+        }
+
+        .terms-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--white);
+            border-radius: 16px;
+            padding: 3rem;
+            box-shadow: var(--shadow-lg);
+        }
+
+        @media (max-width: 640px) {
+            .terms-container {
+                padding: 1.5rem;
+                border-radius: 12px;
+            }
+            .terms-page {
+                padding: 6rem 1rem 2rem;
+            }
+        }
+
+        .terms-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        .terms-header h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--gray-900);
+            margin-bottom: 0.5rem;
+        }
+
+        .terms-header .last-updated {
+            font-size: 0.875rem;
+            color: var(--gray-500);
+        }
+
+        .terms-intro {
+            background: linear-gradient(135deg, rgba(37, 211, 102, 0.1) 0%, rgba(18, 140, 126, 0.05) 100%);
+            border-left: 4px solid var(--green-primary);
+            padding: 1.5rem;
+            border-radius: 0 12px 12px 0;
+            margin-bottom: 2.5rem;
+        }
+
+        .terms-intro p {
+            font-size: 1.125rem;
+            color: var(--gray-700);
+            margin: 0;
+            line-height: 1.7;
+        }
+
+        .terms-section {
+            margin-bottom: 2.5rem;
+        }
+
+        .terms-section h2 {
+            font-size: 1.375rem;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .terms-section h2 .section-number {
+            width: 32px;
+            height: 32px;
+            background: var(--green-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 0.875rem;
+            font-weight: 700;
+        }
+
+        .terms-section p {
+            font-size: 1rem;
+            color: var(--gray-600);
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .terms-section ul {
+            list-style: none;
+            padding: 0;
+            margin: 1rem 0;
+        }
+
+        .terms-section li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            padding: 0.625rem 0;
+            font-size: 1rem;
+            color: var(--gray-600);
+            line-height: 1.6;
+        }
+
+        .terms-section li svg {
+            width: 20px;
+            height: 20px;
+            color: var(--green-primary);
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .highlight-box {
+            background: var(--gray-50);
+            border: 1px solid var(--gray-200);
+            border-radius: 12px;
+            padding: 1.25rem;
+            margin: 1rem 0;
+        }
+
+        .highlight-box p {
+            margin: 0;
+            color: var(--gray-700);
+        }
+
+        .warning-box {
+            background: #fef2f2;
+            border: 1px solid #fecaca;
+            border-left: 4px solid #ef4444;
+            border-radius: 0 12px 12px 0;
+            padding: 1.25rem;
+            margin: 1rem 0;
+        }
+
+        .warning-box p {
+            margin: 0;
+            color: #991b1b;
+        }
+
+        .contact-section {
+            background: linear-gradient(135deg, var(--gray-900) 0%, var(--gray-800) 100%);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .contact-section h3 {
+            color: var(--white);
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin: 0 0 0.5rem 0;
+        }
+
+        .contact-section p {
+            color: var(--gray-400);
+            margin: 0 0 1rem 0;
+        }
+
+        .contact-section a {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--green-primary);
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        .contact-section a:hover {
+            text-decoration: underline;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--gray-500);
+            font-size: 0.875rem;
+            margin-bottom: 1.5rem;
+            transition: color 0.2s;
+        }
+
+        .back-link:hover {
+            color: var(--green-primary);
+        }
+
+        .back-link svg {
+            width: 16px;
+            height: 16px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="/" class="nav-logo">
+                <div class="nav-logo-icon">
+                    <svg viewBox="0 0 32 32" fill="none">
+                        <rect width="32" height="32" rx="8" fill="#25D366"/>
+                        <path d="M16 6C10.5 6 6 10 6 15c0 2.5 1 4.8 2.8 6.5V26l4.2-2.3c1 .3 2 .4 3 .4 5.5 0 10-4 10-9s-4.5-9-10-9z" fill="white" fill-opacity="0.95"/>
+                        <rect x="11" y="12" width="10" height="7" rx="2" fill="white" stroke="#128C7E" stroke-width="1"/>
+                        <circle cx="13.5" cy="14.5" r="1" fill="#128C7E"/>
+                        <circle cx="18.5" cy="14.5" r="1" fill="#128C7E"/>
+                        <rect x="12.5" y="16.5" width="7" height="1.5" rx="0.75" fill="#25D366"/>
+                    </svg>
+                </div>
+                <span>Whatbot</span>
+            </a>
+            <div class="nav-links">
+                <a href="/#features">Features</a>
+                <a href="/#how-it-works">How it works</a>
+                <a href="/#pricing">Pricing</a>
+            </div>
+            <a href="https://chromewebstore.google.com/detail/whatbot/YOUR_EXTENSION_ID" target="_blank" class="nav-cta">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"/>
+                    <circle cx="12" cy="12" r="4" fill="currentColor"/>
+                </svg>
+                <span>Get Started Free</span>
+            </a>
+        </div>
+    </nav>
+
+    <main class="terms-page">
+        <div class="terms-container">
+            <a href="/" class="back-link">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+                Back to Home
+            </a>
+
+            <div class="terms-header">
+                <h1>Terms of Service</h1>
+                <p class="last-updated">Last updated: January 29, 2025</p>
+            </div>
+
+            <div class="terms-intro">
+                <p>By using Whatbot, you agree to these terms. Please read them carefully before using our Chrome extension.</p>
+            </div>
+
+            <!-- Acceptance -->
+            <section class="terms-section">
+                <h2>
+                    <span class="section-number">1</span>
+                    Acceptance of Terms
+                </h2>
+                <p>By installing or using the Whatbot Chrome extension, you agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use Whatbot.</p>
+            </section>
+
+            <!-- Description of Service -->
+            <section class="terms-section">
+                <h2>
+                    <span class="section-number">2</span>
+                    Description of Service
+                </h2>
+                <p>Whatbot is a Chrome extension that provides AI-powered summarization of WhatsApp Web conversations. The service:</p>
+                <ul>
+                    <li>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                        Reads messages from your currently open WhatsApp Web chat
+                    </li>
+                    <li>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                        Sends message content to AI providers for summarization
+                    </li>
+                    <li>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                        Displays summaries within the WhatsApp Web interface
+                    </li>
+                    <li>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                        Stores summaries locally on your device
+                    </li>
+                </ul>
+            </section>
+
+            <!-- User Responsibilities -->
+            <section class="terms-section">
+                <h2>
+                    <span class="section-number">3</span>
+                    User Responsibilities
+                </h2>
+                <p>As a user of Whatbot, you agree to:</p>
+                <ul>
+                    <li>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                        Use the extension only for lawful purposes
+                    </li>
+                    <li>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                        Obtain consent from chat participants if required by your jurisdiction
+                    </li>
+                    <li>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                        Keep your API keys secure and confidential
+                    </li>
+                    <li>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                        Not use the service to process sensitive or confidential business information without appropriate safeguards
+                    </li>
+                </ul>
+            </section>
+
+            <!-- Subscription & Billing -->
+            <section class="terms-section">
+                <h2>
+                    <span class="section-number">4</span>
+                    Subscription & Billing
+                </h2>
+                <p>Whatbot offers a free trial and paid subscription plans:</p>
+                <ul>
+                    <li>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                        <strong>Free Trial:</strong> 7 days of unlimited access with no credit card required
+                    </li>
+                    <li>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                        <strong>Monthly Plan:</strong> Billed monthly, cancel anytime
+                    </li>
+                    <li>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                        <strong>Annual Plan:</strong> Billed yearly at a discounted rate
+                    </li>
+                </ul>
+                <div class="highlight-box">
+                    <p>Subscriptions are processed through LemonSqueezy. You can cancel your subscription at any time through your account settings or by contacting us.</p>
+                </div>
+            </section>
+
+            <!-- Refunds -->
+            <section class="terms-section">
+                <h2>
+                    <span class="section-number">5</span>
+                    Refund Policy
+                </h2>
+                <p>We offer refunds under the following conditions:</p>
+                <ul>
+                    <li>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                        Full refund within 7 days of purchase if unsatisfied
+                    </li>
+                    <li>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                        Pro-rated refund for annual plans cancelled within 30 days
+                    </li>
+                    <li>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                        No refunds for monthly plans after the billing period has started
+                    </li>
+                </ul>
+                <p>To request a refund, contact us at whatbot.extension@gmail.com.</p>
+            </section>
+
+            <!-- Third-Party Services -->
+            <section class="terms-section">
+                <h2>
+                    <span class="section-number">6</span>
+                    Third-Party Services
+                </h2>
+                <p>Whatbot integrates with third-party AI providers. By using Whatbot, you also agree to:</p>
+                <ul>
+                    <li>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                        OpenAI's Terms of Service and Usage Policies (if using OpenAI)
+                    </li>
+                    <li>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                        Anthropic's Terms of Service (if using Claude)
+                    </li>
+                    <li>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                        Google's Terms of Service (if using Gemini)
+                    </li>
+                </ul>
+                <p>You are responsible for any costs associated with your API usage with these providers.</p>
+            </section>
+
+            <!-- Intellectual Property -->
+            <section class="terms-section">
+                <h2>
+                    <span class="section-number">7</span>
+                    Intellectual Property
+                </h2>
+                <p>The Whatbot extension, including its code, design, and branding, is owned by Whatbot. You may not:</p>
+                <ul>
+                    <li>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+                        Copy, modify, or distribute the extension code
+                    </li>
+                    <li>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+                        Reverse engineer or decompile the extension
+                    </li>
+                    <li>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+                        Use our branding without permission
+                    </li>
+                </ul>
+            </section>
+
+            <!-- Disclaimer -->
+            <section class="terms-section">
+                <h2>
+                    <span class="section-number">8</span>
+                    Disclaimer of Warranties
+                </h2>
+                <div class="warning-box">
+                    <p>Whatbot is provided "as is" without warranties of any kind. We do not guarantee that the service will be uninterrupted, error-free, or that summaries will be 100% accurate. AI-generated summaries should be verified for critical decisions.</p>
+                </div>
+            </section>
+
+            <!-- Limitation of Liability -->
+            <section class="terms-section">
+                <h2>
+                    <span class="section-number">9</span>
+                    Limitation of Liability
+                </h2>
+                <p>To the maximum extent permitted by law, Whatbot shall not be liable for any indirect, incidental, special, consequential, or punitive damages resulting from your use of the service.</p>
+            </section>
+
+            <!-- Changes to Terms -->
+            <section class="terms-section">
+                <h2>
+                    <span class="section-number">10</span>
+                    Changes to Terms
+                </h2>
+                <p>We may update these terms from time to time. We will notify users of significant changes via email or through the extension. Continued use after changes constitutes acceptance of the new terms.</p>
+            </section>
+
+            <!-- Termination -->
+            <section class="terms-section">
+                <h2>
+                    <span class="section-number">11</span>
+                    Termination
+                </h2>
+                <p>We reserve the right to terminate or suspend your access to Whatbot at any time for violation of these terms. You may stop using Whatbot at any time by uninstalling the extension.</p>
+            </section>
+
+            <!-- Governing Law -->
+            <section class="terms-section">
+                <h2>
+                    <span class="section-number">12</span>
+                    Governing Law
+                </h2>
+                <p>These terms shall be governed by and construed in accordance with the laws of India, without regard to its conflict of law provisions.</p>
+            </section>
+
+            <!-- Contact -->
+            <div class="contact-section">
+                <h3>Questions about these terms?</h3>
+                <p>We're happy to clarify anything.</p>
+                <a href="mailto:whatbot.extension@gmail.com">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                        <polyline points="22,6 12,13 2,6"/>
+                    </svg>
+                    whatbot.extension@gmail.com
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-main">
+                <div class="footer-brand">
+                    <a href="/" class="footer-logo">
+                        <div class="nav-logo-icon">
+                            <svg viewBox="0 0 32 32" fill="none">
+                                <rect width="32" height="32" rx="8" fill="#25D366"/>
+                                <path d="M16 6C10.5 6 6 10 6 15c0 2.5 1 4.8 2.8 6.5V26l4.2-2.3c1 .3 2 .4 3 .4 5.5 0 10-4 10-9s-4.5-9-10-9z" fill="white" fill-opacity="0.95"/>
+                            </svg>
+                        </div>
+                        <span>Whatbot</span>
+                    </a>
+                    <p>AI-powered chat summaries for WhatsApp Web. Save time, stay informed.</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-col">
+                        <h4>Product</h4>
+                        <a href="/#features">Features</a>
+                        <a href="/#how-it-works">How it works</a>
+                        <a href="/#pricing">Pricing</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Legal</h4>
+                        <a href="/privacy">Privacy Policy</a>
+                        <a href="/terms">Terms of Service</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Support</h4>
+                        <a href="mailto:whatbot.extension@gmail.com">Contact</a>
+                        <a href="/#faq">FAQ</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Whatbot. All rights reserved.</p>
+                <p>Not affiliated with WhatsApp or Meta.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Navigation scroll effect
+        const nav = document.querySelector('.nav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 20) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
+</html>

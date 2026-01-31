@@ -1150,6 +1150,239 @@ img, svg {
 }
 
 /* =============================================
+   What Gets Summarized Section
+   ============================================= */
+
+.what-summarized {
+    padding: 5rem 0;
+    background: var(--white);
+}
+
+.summarized-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+@media (min-width: 640px) {
+    .summarized-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.summarized-card {
+    padding: 1.75rem;
+    border-radius: 16px;
+    border: 1px solid var(--gray-200);
+}
+
+.summarized-card.included {
+    background: linear-gradient(135deg, rgba(37, 211, 102, 0.05) 0%, rgba(37, 211, 102, 0.02) 100%);
+    border-color: rgba(37, 211, 102, 0.2);
+}
+
+.summarized-card.excluded {
+    background: var(--gray-50);
+}
+
+.summarized-card h3 {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.summarized-card.included h3 {
+    color: var(--green-primary);
+}
+
+.summarized-card.excluded h3 {
+    color: var(--gray-500);
+}
+
+.summarized-card h3 svg {
+    width: 20px;
+    height: 20px;
+}
+
+.summarized-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.summarized-card li {
+    padding: 0.5rem 0;
+    font-size: 0.9375rem;
+    color: var(--gray-600);
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.summarized-card li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.875rem;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+}
+
+.summarized-card.included li::before {
+    background: var(--green-primary);
+}
+
+.summarized-card.excluded li::before {
+    background: var(--gray-400);
+}
+
+/* =============================================
+   Trust Box Section
+   ============================================= */
+
+.trust-section {
+    padding: 5rem 0;
+    background: var(--gray-50);
+}
+
+.trust-box {
+    max-width: 700px;
+    margin: 0 auto;
+    background: var(--white);
+    border-radius: 20px;
+    padding: 2.5rem;
+    box-shadow: var(--shadow-lg);
+    text-align: center;
+}
+
+.trust-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.trust-header svg {
+    width: 48px;
+    height: 48px;
+    color: var(--green-primary);
+}
+
+.trust-header h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--gray-900);
+    margin: 0;
+}
+
+.trust-items {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+@media (min-width: 640px) {
+    .trust-items {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.trust-item-box {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem 1.25rem;
+    background: var(--gray-50);
+    border-radius: 12px;
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: var(--gray-700);
+    text-align: left;
+}
+
+.trust-item-box svg {
+    width: 22px;
+    height: 22px;
+    color: var(--green-primary);
+    flex-shrink: 0;
+}
+
+.trust-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--green-primary);
+    font-size: 0.9375rem;
+    font-weight: 600;
+    transition: gap 0.2s;
+}
+
+.trust-link:hover {
+    gap: 0.75rem;
+}
+
+/* =============================================
+   FAQ Section
+   ============================================= */
+
+.faq {
+    padding: 5rem 0;
+    background: var(--white);
+}
+
+.faq-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+    .faq-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.faq-item {
+    padding: 1.5rem;
+    background: var(--gray-50);
+    border-radius: 12px;
+    transition: all 0.2s;
+}
+
+.faq-item:hover {
+    background: var(--white);
+    box-shadow: var(--shadow-md);
+}
+
+.faq-item h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--gray-900);
+    margin-bottom: 0.75rem;
+    line-height: 1.4;
+}
+
+.faq-item p {
+    font-size: 0.875rem;
+    color: var(--gray-600);
+    line-height: 1.7;
+    margin: 0;
+}
+
+.faq-item strong {
+    color: var(--gray-700);
+}
+
+/* =============================================
    CTA Section
    ============================================= */
 
