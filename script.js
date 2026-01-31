@@ -1,70 +1,29 @@
-// Whatbot Landing Page Scripts
+// Navigation scroll effect
+const nav = document.querySelector('.nav');
 
-(function() {
-    'use strict';
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 20) {
+        nav.classList.add('scrolled');
+    } else {
+        nav.classList.remove('scrolled');
+    }
+});
 
-    // Navigation scroll effect
-    const nav = document.querySelector('.nav');
-    let lastScroll = 0;
+// Smooth scroll for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        if (href === '#') return;
 
-    window.addEventListener('scroll', () => {
-        const currentScroll = window.pageYOffset;
-
-        if (currentScroll > 50) {
-            nav.classList.add('scrolled');
-        } else {
-            nav.classList.remove('scrolled');
+        e.preventDefault();
+        const target = document.querySelector(href);
+        if (target) {
+            const navHeight = nav.offsetHeight;
+            const targetPosition = target.getBoundingClientRect().top + window.scrollY - navHeight - 20;
+            window.scrollTo({
+                top: targetPosition,
+                behavior: 'smooth'
+            });
         }
-
-        lastScroll = currentScroll;
-    }, { passive: true });
-
-    // Smooth scroll for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            const href = this.getAttribute('href');
-            if (href === '#') return;
-
-            e.preventDefault();
-            const target = document.querySelector(href);
-            if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            }
-        });
     });
-
-    // Intersection Observer for fade-in animations
-    const observerOptions = {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.1
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-                observer.unobserve(entry.target);
-            }
-        });
-    }, observerOptions);
-
-    document.querySelectorAll('.fade-in, .feature-card, .step').forEach(el => {
-        observer.observe(el);
-    });
-
-    // Add fade-in class to elements
-    document.querySelectorAll('.feature-card').forEach((card, index) => {
-        card.style.transitionDelay = `${index * 0.1}s`;
-        card.classList.add('fade-in');
-    });
-
-    document.querySelectorAll('.step').forEach((step, index) => {
-        step.style.transitionDelay = `${index * 0.15}s`;
-        step.classList.add('fade-in');
-    });
-
-})();
+});
